@@ -9,6 +9,6 @@
       Title="AddedClients">
 
     <Grid>
-        <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="228,56,228,357"/>
+        <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="228,66,228,347"/>
     </Grid>
 </Page>

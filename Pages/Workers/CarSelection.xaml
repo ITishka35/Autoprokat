@@ -12,7 +12,7 @@
         <ListView x:Name="ListSpisok" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" Height="500" HorizontalContentAlignment="Center" Margin="0,82,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Width="952" VerticalAlignment="Top">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" Height="500"/>
+                    <WrapPanel Orientation="Horizontal" Height="500" Width="838"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -33,14 +33,14 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <TextBlock Text="{Binding Marks}" VerticalAlignment="Top" TextAlignment="Center" Width="390" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5,10,5,5" FontSize="20" Grid.Row="0"></TextBlock>
+                        <TextBlock Text="{Binding Marks}" VerticalAlignment="Top" TextAlignment="Center" Width="390" TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="5,5,5,25" FontSize="20" Grid.Row="0"></TextBlock>
                         <Image Source="{Binding MainImagePath}" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Center" Grid.Row="1"></Image>
                         <TextBlock Text="{Binding Model}" VerticalAlignment="Center" TextAlignment="Center" Width="390" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5,25,5,5" FontSize="20" Grid.Row="0"></TextBlock>
-                        <TextBlock Text="{Binding Year_Release }" Grid.Row="1" FontSize="14" Foreground="Green" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Margin="322,0,0,50"/>
-                        <TextBlock Text="{Binding Transmission }" Grid.Row="1" FontSize="14" Foreground="Red" HorizontalAlignment="Right"  Margin="0,0,0,25" VerticalAlignment="Bottom" Height="33"/>
+                        <TextBlock Text="{Binding Year_Release }" Grid.Row="1" FontSize="14" Foreground="Green" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Margin="268,0,0,50" Width="132"/>
+                        <TextBlock Text="{Binding Transmission }" Grid.Row="1" FontSize="14" Foreground="Red" HorizontalAlignment="Right"  Margin="0,0,0,20" VerticalAlignment="Bottom" Height="33" Width="132"/>
                         <TextBlock Text="{Binding Engine_Volume,StringFormat= {}{0:N2} л.с}" Grid.Row="2" FontSize="14" HorizontalAlignment="Right"/>
                         <TextBlock Text="{Binding Deposit_Amount, StringFormat={}{0:N2} руб}" Grid.Row="2" Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" VerticalAlignment="Top" Width="200"></TextBlock>
-                        <TextBlock x:Name="Types" Text="{Binding }" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Height="25" Margin="328,0,0,0" VerticalAlignment="Top"/>
+                        <TextBlock  x:Name="Types" Text="{Binding Type}" Grid.Row="1" FontSize="14" HorizontalAlignment="Left" Height="25" Margin="328,0,0,0" VerticalAlignment="Top"/>
 
                         <Button HorizontalAlignment="Center" x:Name="Edit" Click="Edit_Click" Width="100" Height="25" Content="Редактировать" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" ></Button>
                         <Button HorizontalAlignment="Right" x:Name="Del" Click="Del_Click" Width="100" Height="25" Content="Удалить" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" ></Button>
