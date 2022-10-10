@@ -1,0 +1,25 @@
+﻿<Window x:Class="Autoprokat.MainWindow" Icon="/guokp.png"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Autoprokat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1000" MinHeight="600" MinWidth="980">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu HorizontalAlignment="Left" Height="20" Width="94" Margin="4,4,0,0" VerticalAlignment="Top">
+            <MenuItem Header="Файл" Height="20">
+            </MenuItem>
+            <MenuItem Header="Выйти" Click="OnExit" Height="20"/>
+        </Menu>
+        <Image Source="/guokp.png" Width="87" Height="89" HorizontalAlignment="Left" Margin="309,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,0.54"/>
+
+        <Label Content="ИС Автопрокат" Height="33" Margin="425,54,0,0" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="18"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"  Margin="10,119,5,0"/>
+
+    </Grid>
+</Window>

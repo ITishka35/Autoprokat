@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c88f97ef1264265a4c3fc7f3228c762" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="AutoProkatModel.Cars" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="AutoProkatModel.Clients" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="AutoProkatModel.Issued_Cars" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="AutoProkatModel.Role" Width="1.5" PointX="5.75" PointY="6.125" />
+        <EntityTypeShape EntityType="AutoProkatModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AutoProkatModel.Type_Cars" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="AutoProkatModel.Users" Width="1.5" PointX="8" PointY="5.875" />
+        <EntityTypeShape EntityType="AutoProkatModel.Workers" Width="1.5" PointX="3" PointY="10.125" />
+        <AssociationConnector Association="AutoProkatModel.FK_Cars_Type_Cars" />
+        <AssociationConnector Association="AutoProkatModel.FK_Issued_Cars_Cars" />
+        <AssociationConnector Association="AutoProkatModel.FK_Issued_Cars_Clients" />
+        <AssociationConnector Association="AutoProkatModel.FK_Issued_Cars_Workers" />
+        <AssociationConnector Association="AutoProkatModel.FK_Users_Role" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
