@@ -26,9 +26,8 @@ namespace Autoprokat.Pages.Workers
             InitializeComponent();
             ListSpisok.ItemsSource = AppConnect.model.Cars.ToArray();
             DataGrid1.ItemsSource = AppConnect.model.Cars.ToArray();
-            Binding binding = new Binding();
-            // ListSpisok.ItemsSource = AppConnect.model.Type_Cars.ToArray();
-            ListSpisok.DataContext = AppConnect.model.Type_Cars.ToArray();
+            Boxs.ItemsSource = AppConnect.model.Type_Cars.ToArray();
+
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -51,5 +50,7 @@ namespace Autoprokat.Pages.Workers
         {
 
         }
+
+
     }
 }
