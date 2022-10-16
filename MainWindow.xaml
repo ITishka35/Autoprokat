@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Autoprokat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1000" MinHeight="600" MinWidth="980">
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="1000" Width="1000" MinHeight="616" MinWidth="1500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="199*"/>
@@ -19,7 +20,7 @@
         <Image Source="/guokp.png" Width="87" Height="89" HorizontalAlignment="Left" Margin="309,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,0.54"/>
 
         <Label Content="ИС Автопрокат" Height="33" Margin="425,54,0,0" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="18"/>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"  Margin="10,119,5,0"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"  Margin="10,119,4,0"/>
 
     </Grid>
 </Window>

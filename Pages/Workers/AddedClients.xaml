@@ -8,7 +8,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddedClients">
 
-    <Grid>
-        <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="228,66,228,347"/>
+    <Grid Margin="0,119,0,0">
+
+        <Grid x:Name="Dobav" Margin="0,-133,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="69*"/>
+                <ColumnDefinition Width="731*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="159,10,228,321" Grid.Column="1"/>
+            <Label Content="Наименование улсуги:" HorizontalAlignment="Left"  Margin="88,19,0,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
+            <TextBox Width="280" Height="25" x:Name="Name" Margin="246,19,205,287" Text="{Binding Path=Name}" Grid.Column="1"/>
+            <Image x:Name="mainpage" Margin="10,19,690,212" Width="100" Height="100" Grid.ColumnSpan="2"/>
+            <Button x:Name="ViboPict" Click="ViboPict_Click" Margin="115,278,366,0" Height="34" VerticalAlignment="Top" Width="250" Grid.Column="1">Выбрать картинку</Button>
+            <Label Content="Цена" HorizontalAlignment="Left" Margin="88,89,0,0" VerticalAlignment="Top" Height="30" Grid.Column="1"/>
+            <Label Content="Действующая скидка" HorizontalAlignment="Left" Margin="88,124,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+            <Label Content="Время" HorizontalAlignment="Left" Margin="88,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28" Grid.Column="1"/>
+            <TextBox  Height="23" Width="280" x:Name="Price" Margin="246,89,205,0" VerticalAlignment="Top" Text="{Binding Path=Price}" Grid.Column="1"></TextBox>
+            <TextBox Height="24" Width="280" x:Name="Time" Margin="246,54,205,0" VerticalAlignment="Top" Text="{Binding Path=Duration}" Grid.Column="1"/>
+            <Button Height="25" Width="100" Click="Button_Click" Margin="386,287,245,152" Grid.Column="1">Сохранить все</Button>
+            <Button Content="Назад" Click="Button_Click_1" HorizontalAlignment="Left" Margin="7,287,0,0" VerticalAlignment="Top" Width="80" Height="25" Grid.Column="1"/>
+
+            <TextBox x:Name="Sales" HorizontalAlignment="Left" Height="23" Margin="246,124,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="280" Text="{Binding Path=Sale}" Grid.Column="1" />
+
+        </Grid>
     </Grid>
 </Page>
