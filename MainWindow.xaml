@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Autoprokat"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="1000" Width="1000" MinHeight="616" MinWidth="1500">
+        Title="MainWindow" Height="1000" Width="1400" MinHeight="616" MinWidth="1500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="199*"/>

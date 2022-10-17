@@ -8,21 +8,52 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Add_Workers">
 
-    <Grid x:Name="Dobav">
+    <Grid x:Name="Dobav" Margin="0,0,-19,0">
 
-        <Label Content="Наименование улсуги:" HorizontalAlignment="Left"  Margin="157,19,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox Width="280" Height="25" x:Name="Name" Margin="315,19,205,405" Text="{Binding Path=Name}"/>
-        <Image x:Name="mainpage" Margin="10,19,704,342" Width="100" Height="100"/>
-        <Button x:Name="ViboPict" Click="ViboPict_Click" Margin="59,335,491,0" Height="34" VerticalAlignment="Top" Width="250">Выбрать картинку</Button>
-        <Label Content="Цена" HorizontalAlignment="Left" Margin="157,89,0,0" VerticalAlignment="Top" Height="30"/>
-        <TextBox  Height="23" Width="280" x:Name="Price" Margin="315,89,205,0" VerticalAlignment="Top" Text="{Binding Path=Price}"></TextBox>
-        <Label Content="Время" HorizontalAlignment="Left" Margin="157,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>
-        <TextBox Height="24" Width="280" x:Name="Time" Margin="315,54,205,0" VerticalAlignment="Top" Text="{Binding Path=Duration}"/>
-        <Button Height="25" Width="100" Click="Button_Click" Margin="426,392,274,33">Сохранить все</Button>
-        <Button Content="Назад" Click="Button_Click_1" HorizontalAlignment="Left" Margin="59,392,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
-        <Label Content="Действующая скидка" HorizontalAlignment="Left" Margin="157,124,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Sales" HorizontalAlignment="Left" Height="23" Margin="315,124,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="280" Text="{Binding Path=Sale}" />
-        <Button x:Name="DopPict_Copy" Click="DopPict_Copy_Click" Margin="157,392,393,0" Height="25" VerticalAlignment="Top" Width="250" Content="Дополнительна картинка"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left"  Margin="18,20,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox Height="25" x:Name="Name" Margin="176,21,0,0" Text="{Binding Path=LasrName}" HorizontalAlignment="Left" Width="263" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="18,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>
+        <TextBox Height="24" x:Name="Time" Margin="176,56,0,0" VerticalAlignment="Top" Text="{Binding Path=FirstName}" HorizontalAlignment="Left" Width="263"/>
+        <Button Height="25" Width="100" Click="Button_Click" Margin="105,182,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">Сохранить все</Button>
+        <Button Content="Назад" Click="Button_Click_1" HorizontalAlignment="Left" Margin="20,182,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="18,94,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Sales" HorizontalAlignment="Left" Height="22" Margin="176,94,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Path=MiddleName}" />
+        <Label Content="Должность" HorizontalAlignment="Left" Margin="18,134,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Sales_Copy" HorizontalAlignment="Left" Height="22" Margin="176,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Path=Position}" />
+        <Button Height="25" Width="100" Click="Button_Click" Margin="210,182,0,0" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Height="25" Width="100" Click="Button_Click" Margin="316,182,0,0" Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ListView x:Name="ListSpisok" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="480,21,10,68" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" Height="395" Width="315"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" Height="103">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Image Width="50" Stretch="Fill" Margin="0,10,0,0" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" >
+                            <Image.Source>
+                                <Binding Path="imagePreview">
+                                    <Binding.TargetNullValue>
+                                        <Image Source="/Images/guokp.png" Margin="0,0,0,0" Width="50" />
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{Binding LastName}" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Margin="0,10,190,0" FontSize="20" Grid.Row="1" HorizontalAlignment="Right" Width="117"/>
+                        <TextBlock Text="{Binding FirstName}" TextAlignment="Center" Width="111" TextWrapping="Wrap" Margin="0,10,20,58" FontSize="20" Grid.Row="1" HorizontalAlignment="Right"/>
+                        <TextBlock Text="{Binding MiddleName }" FontSize="14" Foreground="Green" Height="30" Margin="0,50,180,0" Width="112" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding Position }" Grid.Row="1" FontSize="14" Foreground="Red"  Margin="0,47,41,0" VerticalAlignment="Top" Height="33" HorizontalAlignment="Right" Width="78"/>
 
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

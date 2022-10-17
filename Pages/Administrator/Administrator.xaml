@@ -8,9 +8,9 @@
       Title="Administrator" MinHeight="600" MinWidth="980">
 
     <Grid Width="980" Height="605">
-        <Button Content="Ведение справочника сотрудников" Margin="10,109,0,0" Click="Button_Click" HorizontalAlignment="Left" Width="286" Height="57" VerticalAlignment="Top"/>
-        <Button Content="Ведение справочника автомобилей" Margin="10,184,0,0" HorizontalAlignment="Left" Width="286" Height="57" VerticalAlignment="Top"/>
-        <Button Content="Назад" Margin="10,302,684,245" Click="Button_Click_1"/>
+        <Button Content="Ведение справочника сотрудников" Margin="10,109,0,0" Click="AddWorkers_Click" HorizontalAlignment="Left" Width="286" Height="57" VerticalAlignment="Top"/>
+        <Button Content="Ведение справочника автомобилей" Margin="10,184,0,0" Click="AddCars_Click" HorizontalAlignment="Left" Width="286" Height="57" VerticalAlignment="Top"/>
+        <Button Content="Назад" Margin="10,302,684,245" Click="OnBack_Click"/>
 
     </Grid>
 </Page>

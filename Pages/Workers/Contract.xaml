@@ -9,6 +9,12 @@
       Title="Contract">
 
     <Grid>
-        
+        <Label Content="Заключение договора" FontSize="20" Margin="0,10,0,0" HorizontalAlignment="Center" Width="452" Height="45" VerticalAlignment="Top"/>
+        <DocumentViewer x:Name="documentViewer" Margin="0,60,0,39">
+            <FixedDocument/>
+        </DocumentViewer>
+        <Button Content="Загрузить" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="112" Click="load_Click"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="137,420,0,0" VerticalAlignment="Top" Width="112" Click="Save_Click"/>
+
     </Grid>
 </Page>

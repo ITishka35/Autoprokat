@@ -14,14 +14,20 @@ namespace Autoprokat.Pages.Administrator
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddWorkers_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.Frames.Navigate(new Add_Workers());
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void OnBack_Click(object sender, RoutedEventArgs e)
         {
             AppFrame.Frames.Navigate(new Workers.Autoriz());
+        }
+
+        private void AddCars_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new Add_Cars());
+
         }
     }
 }

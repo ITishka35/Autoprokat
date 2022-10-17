@@ -9,10 +9,11 @@
       Title="Manager"  MinHeight="600" MinWidth="980">
 
     <Grid>
-        <Button Content="Выбор автомобиля" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Height="57" Width="246" Click="CarSelection_Click"/>
+        <Button Content="Выбор автомобиля"  HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Height="57" Width="246" Click="CarSelection_Click"/>
         <Button Content="Добавление клиента в базу данных" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Height="57" Width="246" Click="AddedClients_Click"/>
         <Button Content="Заключение договора" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Height="58" Width="246"/>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="554,382,0,0" VerticalAlignment="Top" Height="58" Width="246" Click="GoBack_Click"/>
+        <Label Content="Меню менеджера" FontSize="20" Margin="0,27,226,0" HorizontalAlignment="Right" Width="451" Height="45" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

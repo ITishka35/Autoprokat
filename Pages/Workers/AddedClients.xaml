@@ -8,28 +8,25 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddedClients">
 
-    <Grid Margin="0,119,0,0">
-
-        <Grid x:Name="Dobav" Margin="0,-133,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="69*"/>
-                <ColumnDefinition Width="731*"/>
-            </Grid.ColumnDefinitions>
-            <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="159,10,228,321" Grid.Column="1"/>
-            <Label Content="Наименование улсуги:" HorizontalAlignment="Left"  Margin="88,19,0,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
-            <TextBox Width="280" Height="25" x:Name="Name" Margin="246,19,205,287" Text="{Binding Path=Name}" Grid.Column="1"/>
-            <Image x:Name="mainpage" Margin="10,19,690,212" Width="100" Height="100" Grid.ColumnSpan="2"/>
-            <Button x:Name="ViboPict" Click="ViboPict_Click" Margin="115,278,366,0" Height="34" VerticalAlignment="Top" Width="250" Grid.Column="1">Выбрать картинку</Button>
-            <Label Content="Цена" HorizontalAlignment="Left" Margin="88,89,0,0" VerticalAlignment="Top" Height="30" Grid.Column="1"/>
-            <Label Content="Действующая скидка" HorizontalAlignment="Left" Margin="88,124,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-            <Label Content="Время" HorizontalAlignment="Left" Margin="88,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28" Grid.Column="1"/>
-            <TextBox  Height="23" Width="280" x:Name="Price" Margin="246,89,205,0" VerticalAlignment="Top" Text="{Binding Path=Price}" Grid.Column="1"></TextBox>
-            <TextBox Height="24" Width="280" x:Name="Time" Margin="246,54,205,0" VerticalAlignment="Top" Text="{Binding Path=Duration}" Grid.Column="1"/>
-            <Button Height="25" Width="100" Click="Button_Click" Margin="386,287,245,152" Grid.Column="1">Сохранить все</Button>
-            <Button Content="Назад" Click="Button_Click_1" HorizontalAlignment="Left" Margin="7,287,0,0" VerticalAlignment="Top" Width="80" Height="25" Grid.Column="1"/>
-
-            <TextBox x:Name="Sales" HorizontalAlignment="Left" Height="23" Margin="246,124,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="280" Text="{Binding Path=Sale}" Grid.Column="1" />
-
-        </Grid>
+    <Grid >
+        <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="239,24,0,0" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344"/>
+        <Button Height="25" Width="100" Click="Button_Click" Margin="411,388,289,37">Сохранить все</Button>
+        <Button Content="Назад" Click="Button_Click_1" HorizontalAlignment="Left" Margin="17,388,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left"  Margin="40,67,0,0" VerticalAlignment="Top" Height="26"/>
+        <TextBox Height="25" x:Name="Name" Margin="198,68,0,0" Text="{Binding LasrName}" HorizontalAlignment="Left" Width="263" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>
+        <TextBox Height="24" x:Name="Time" Margin="198,103,0,0" VerticalAlignment="Top" Text="{Binding FirstName}" HorizontalAlignment="Left" Width="263"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="40,141,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Sales" HorizontalAlignment="Left" Height="22" Margin="198,141,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding MiddleName}" />
+        <Label Content="Номер паспорта" HorizontalAlignment="Left" Margin="40,177,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Sales_Copy" HorizontalAlignment="Left" Height="22" Margin="198,179,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding NumberPassport}" />
+        <Label Content="Серия паспорта" HorizontalAlignment="Left"  Margin="40,0,0,0" VerticalAlignment="Center" Height="26"/>
+        <TextBox Height="25" x:Name="Name_Copy" Margin="198,0,0,0" Text="{Binding SeriaPassport}" HorizontalAlignment="Left" Width="263" VerticalAlignment="Center"/>
+        <Label Content="Дата рождения" HorizontalAlignment="Left" Margin="40,243,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>
+        <TextBox Height="24" x:Name="Time_Copy" Margin="198,247,0,0" VerticalAlignment="Top" Text="{Binding Birthday}" HorizontalAlignment="Left" Width="263"/>
+        <Label Content="Телефон" HorizontalAlignment="Left" Margin="40,285,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Sales_Copy1" HorizontalAlignment="Left" Height="22" Margin="198,285,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Phone}" />
+        <Label Content="Адрес прописки" HorizontalAlignment="Left" Margin="40,325,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Sales_Copy2" HorizontalAlignment="Left" Height="22" Margin="198,325,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Adress}" />
     </Grid>
 </Page>

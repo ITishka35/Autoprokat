@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Autoprokat.Pages.Workers"
       mc:Ignorable="d"
-      Title="CarSelection" MinHeight="616" MinWidth="1500">
+      Title="CarSelection"  MinHeight="616" MinWidth="1500">
 
     <Grid HorizontalAlignment="Center"  Width="1518" Height="888">
         <Grid.ColumnDefinitions>
@@ -59,7 +59,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="500" Margin="530,82,0,0" VerticalAlignment="Top" Width="320" Grid.Column="1"/>
+        <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="500" Margin="530,82,0,0" VerticalAlignment="Top" Width="484" Grid.Column="1"/>
         <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="502,0,36,265" Grid.Column="1">
             <ListBox x:Name="RedList" Margin="10,5,36,0" Height="600">
                 <ListBox.ItemTemplate>
