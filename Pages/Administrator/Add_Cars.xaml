@@ -9,8 +9,9 @@
 
     <Grid x:Name="Dobav" Margin="0,0,10,0">
 
+
         <Label x:Name="lbl_Marks" Content="Марка автомобиля" HorizontalAlignment="Left"  Margin="26,68,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox Width="196" Height="25" x:Name="txb_MarkAuto" Margin="184,70,0,522" Text="{Binding Path=Marks}" HorizontalAlignment="Left"/>
+        <TextBox Width="196" Height="25" x:Name="txb_MarkAuto" Margin="184,60,0,522" Text="{Binding Path=Marks}" HorizontalAlignment="Left"/>
         <Label x:Name="lbl_Model" Content="Модель автомобиля" HorizontalAlignment="Left" Margin="26,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>
         <TextBox Height="24" Width="196" x:Name="txb_Model" Margin="184,102,0,0" VerticalAlignment="Top" Text="{Binding Path=Model}" HorizontalAlignment="Left"/>
         <Button Height="26" Click="All_Save_Click" Margin="114,390,0,0" HorizontalAlignment="Left" Width="88" VerticalAlignment="Top">Сохранить все</Button>
@@ -19,7 +20,7 @@
         <TextBox x:Name="txb_Year" HorizontalAlignment="Left" Height="22" Margin="184,146,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding Path=Year_Release}" />
         <Label x:Name="lbl_Color" Content="Цвет автомобиля" HorizontalAlignment="Left" Margin="26,182,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txb_Color" HorizontalAlignment="Left" Height="22" Margin="184,182,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding Path=Color}" />
-        <Button Height="24" Click="Delete_Click" Margin="212,390,0,0" Content="Удалить" HorizontalAlignment="Left" Width="86" VerticalAlignment="Top"/>
+        <Button Height="24" Click="AddPic_Click" Margin="212,390,0,0" Content="Удалить" HorizontalAlignment="Left" Width="86" VerticalAlignment="Top"/>
         <Button Height="26" Click="Edits_Item_Click" Margin="310,390,0,0" Content="Редактировать" HorizontalAlignment="Left" Width="86" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Transmission" Content="Трансмиссия" HorizontalAlignment="Left"  Margin="26,212,0,0" VerticalAlignment="Top" Height="26"/>
         <TextBox Width="196" Height="25" x:Name="txb_Transmission" Margin="184,218,0,372" Text="{Binding Transmission}" HorizontalAlignment="Left"/>
@@ -31,8 +32,9 @@
         <TextBox x:Name="txb_State_Number" HorizontalAlignment="Left" Height="22" Margin="184,362,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding TypeCars.Type}" />
         <Label x:Name="lbl_TypeAuto" Content="Тип авто" HorizontalAlignment="Left" Margin="26,358,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txb_TypeAuto" HorizontalAlignment="Left" Height="22" Margin="184,324,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding State_Number}" />
-
-        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="640,25,0,118" d:ItemsSource="{d:SampleData ItemCount=4}" HorizontalAlignment="Left" Width="402">
+        <Image  x:Name="imagePath1" Height="136" Width="149" Margin="455,210,0,0" Source="{Binding Path=MainImagePath}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="imagePath" Text="{Binding Path=MainPathImage}" Margin="417,359,455,229"/>
+        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="640,56,0,0" d:ItemsSource="{d:SampleData ItemCount=4}" HorizontalAlignment="Left" Width="402" Height="473" VerticalAlignment="Top">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="395" Width="335"/>
@@ -91,7 +93,38 @@
             </ComboBoxItem>
         </ComboBox>
         <Label Content="Справочник автомобилей" FontSize="20" HorizontalAlignment="Left" Margin="184,10,0,0" VerticalAlignment="Top" Width="361" Height="41"/>
+        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="14,56,0,0" HorizontalAlignment="Left" Width="412" Height="485" VerticalAlignment="Top">
+            <ListBox x:Name="RedList" Background="White"  Margin="10,0,0,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Width="250" Orientation="Vertical">
+                                <Label Content="Марка" />
+                                <TextBox Width="200"  Margin="-45,0,0,0" Text="{Binding Path=Marks}" Height="20" ></TextBox>
+                                <Label >Модель</Label>
+                                <TextBox Width="200" Margin="-45,0,0,0" Height="20" Text="{Binding Path=Model}"></TextBox>
+                                <Label Content="Год выпуска"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Year_Release}" ></TextBox>
+                                <Label Content="Цвет"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Color}" ></TextBox>
+                                <Label Content="Трансмиссия"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Transmission}" ></TextBox>
+                                <Label Content="Объем двигателя"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Engine_Volume}" ></TextBox>
+                                <Label Content="Сумма залога"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Deposit_Amount}" ></TextBox>
+                                <Label Content="Тип авто"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=TypeCars.Type}" ></TextBox>
+                                <Label Content="Госномер" x:Name="MiddleName" Height="25" Width="200" Margin="-50,0,0,0" />
+                                <TextBox x:Name="StateNumber" Width="200" Height="20"  Margin="-45,0,0,0" Text="{Binding Path=State_Number}"/>
+                                <Button Width="200" Margin="-45,10,0,0" Height="25" Content="Сохранить"  Click="save_Click" Name="save"/>
 
-
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
+
 </Page>

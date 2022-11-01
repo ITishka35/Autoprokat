@@ -59,7 +59,7 @@ namespace Autoprokat.Pages.Administrator
         {
 
             if (ListSpisok.SelectedIndex == -1)//Если не выбран ни один блок Select Index принимает значение -1, первый же блок всегда нумеруется 0
-                MessageBox.Show("Выберите услугу", "Уведомление", MessageBoxButton.OK);
+                MessageBox.Show("Выберите сотрудника", "Уведомление", MessageBoxButton.OK);
             else
                 try
                 {

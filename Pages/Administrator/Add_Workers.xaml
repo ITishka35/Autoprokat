@@ -20,7 +20,7 @@
         <TextBox x:Name="MiddleNameTXT" HorizontalAlignment="Left" Height="22" Margin="121,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Path=MiddleName}" />
         <Label Content="Должность" HorizontalAlignment="Left" Margin="24,158,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="PositionTXT" HorizontalAlignment="Left" Height="22" Margin="121,160,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Path=Position}" />
-        <ListView x:Name="ListSpisok" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="451,107,0,0" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Width="325" Height="335" VerticalAlignment="Top">
+        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="451,107,0,0" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="325" Height="338" VerticalAlignment="Top">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="395" Width="315"/>
@@ -46,8 +46,8 @@
                         </Image>
                         <TextBlock Text="{Binding LastName}" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Margin="0,10,190,0" FontSize="20" Grid.Row="1" HorizontalAlignment="Right" Width="117"/>
                         <TextBlock Text="{Binding FirstName}" TextAlignment="Center" Width="111" TextWrapping="Wrap" Margin="0,10,20,58" FontSize="20" Grid.Row="1" HorizontalAlignment="Right"/>
-                        <TextBlock Text="{Binding MiddleName }" FontSize="20" Height="30" Margin="0,60,180,0" Width="120" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-                        <TextBlock Text="{Binding Position }" Grid.Row="1" FontSize="14" Foreground="Red"  Margin="0,47,41,0" VerticalAlignment="Top" Height="33" HorizontalAlignment="Right" Width="78"/>
+                        <TextBlock Text="{Binding MiddleName }" FontSize="20" Height="30" Margin="0,56,180,0" Width="120" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding Position }" Grid.Row="1" FontSize="14" Foreground="Red"  Margin="0,58,41,0" VerticalAlignment="Top" Height="33" HorizontalAlignment="Right" Width="78"/>
                         <Button HorizontalAlignment="Left" x:Name="Edit" Click="Edit_Click" Width="150" Height="25" Content="Редактировать " VerticalAlignment="Center" Margin="0,0,0,60" Grid.Row="3" ></Button>
                         <Button HorizontalAlignment="Left" x:Name="Del" Click="Del_Click" Width="150" Height="25" Content="Удалить" VerticalAlignment="Center" Margin="0,10,122,0" Grid.Row="3" ></Button>
                     </Grid>

@@ -26,7 +26,6 @@ namespace Autoprokat.Pages.Workers
             InitializeComponent();
             ListSpisok.ItemsSource = AppConnect.model.Cars.ToArray();
             DataGrid1.ItemsSource = AppConnect.model.Cars.ToArray();
-            Boxs.ItemsSource = AppConnect.model.TypeCars.ToArray();
 
         }
 
@@ -54,6 +53,56 @@ namespace Autoprokat.Pages.Workers
         private void BackPage(object sender, RoutedEventArgs e)
         {
             AppFrame.Frames.Navigate(new Manager());
+        }
+
+        private void cmbFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Search_Online(object sender, TextChangedEventArgs e)
+        {
+            ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).ToArray(); // Поиск по наименованию
+                                                                                                                   //Фильтрация по размеру скидки
+            if (cmbFilter.Text == "Седан")
+            {
+                ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+            }
+            else
+            {
+                if (cmbFilter.Text == "Хэчбэк")
+                {
+                    ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+                }
+                else
+                {
+
+                    if (cmbFilter.Text == "Кроссовер")
+                    {
+                        ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+                    }
+
+                    else
+                    {
+                        if (cmbFilter.Text == "Внедорожник")
+                        {
+                            ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+                        }
+                        else
+                        {
+                            if (cmbFilter.Text == "Все")
+                            {
+                                ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).ToArray();
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

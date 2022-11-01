@@ -8,12 +8,13 @@
       Title="CarSelection"  MinHeight="616" MinWidth="1500">
 
     <Grid HorizontalAlignment="Center"  Width="1518" Height="888">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="78*"/>
             <ColumnDefinition Width="175*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Выбор автомобиля" FontSize="20" Margin="0,27,956,0" HorizontalAlignment="Right" Width="259" Height="45" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ListView x:Name="ListSpisok" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="0,82,566,288" d:ItemsSource="{d:SampleData ItemCount=4}" Grid.ColumnSpan="2">
+        <ListView x:Name="ListSpisok" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="0,82,599,288" d:ItemsSource="{d:SampleData ItemCount=4}" Grid.ColumnSpan="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="500" Width="838"/>
@@ -51,8 +52,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="500" Margin="530,82,0,0" VerticalAlignment="Top" Width="484" Grid.Column="1">
+
+        <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="500" Margin="502,82,0,0" VerticalAlignment="Top" Width="512" Grid.Column="1">
 
         </DataGrid>
         <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="502,0,36,265" Grid.Column="1">
@@ -75,7 +76,28 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
         </Grid>
         <Button Content="Назад" Click="BackPage" HorizontalAlignment="Left" Margin="78,641,0,0" VerticalAlignment="Top" Height="25" Width="99"/>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="321,48,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Тип авто" HorizontalAlignment="Left" Margin="94,48,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox  x:Name="txtbMarks" HorizontalAlignment="Left" Margin="391,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Search_Online" Grid.Column="1"/>
+        <ComboBox HorizontalAlignment="Left" Margin="171,50,0,0" VerticalAlignment="Top" Width="120" x:Name="cmbFilter" TextBoxBase.TextChanged="cmbFilter_TextChanged" SelectionChanged="cmbFilter_SelectionChanged" Grid.Column="1">
+            <ComboBoxItem >
+                <TextBlock Text="Седан"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Хэтчбэк"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Кроссовер"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Внедорожник"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Все"/>
+            </ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Page>
