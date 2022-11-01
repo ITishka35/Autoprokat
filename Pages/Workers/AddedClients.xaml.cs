@@ -24,5 +24,15 @@ namespace Autoprokat.Pages.Workers
         {
             InitializeComponent();
         }
+
+        private void SaveAll_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

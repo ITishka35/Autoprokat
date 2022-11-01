@@ -10,8 +10,8 @@
 
     <Grid >
         <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="239,24,0,0" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344"/>
-        <Button Height="25" Width="100" Click="Button_Click" Margin="411,388,289,37">Сохранить все</Button>
-        <Button Content="Назад" Click="Button_Click_1" HorizontalAlignment="Left" Margin="17,388,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
+        <Button Height="25" Width="100" Click="SaveAll_Click" Margin="411,388,289,37">Сохранить все</Button>
+        <Button Content="Назад" Click="BackPage" HorizontalAlignment="Left" Margin="17,388,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
         <Label Content="Фамилия" HorizontalAlignment="Left"  Margin="40,67,0,0" VerticalAlignment="Top" Height="26"/>
         <TextBox Height="25" x:Name="Name" Margin="198,68,0,0" Text="{Binding LasrName}" HorizontalAlignment="Left" Width="263" VerticalAlignment="Top"/>
         <Label Content="Имя" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>

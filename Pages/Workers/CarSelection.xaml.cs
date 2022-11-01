@@ -46,5 +46,9 @@ namespace Autoprokat.Pages.Workers
 
         }
 
+        private void AddPicture_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

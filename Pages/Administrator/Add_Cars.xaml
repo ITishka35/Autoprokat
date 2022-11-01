@@ -13,14 +13,14 @@
         <TextBox Width="197" Height="25" x:Name="txb_MarkAuto" Margin="176,21,0,434" Text="{Binding Path=Marks}" HorizontalAlignment="Left"/>
         <Label x:Name="lbl_Model" Content="Модель автомобиля" HorizontalAlignment="Left" Margin="18,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>
         <TextBox Height="24" Width="197" x:Name="txb_Model" Margin="176,56,0,0" VerticalAlignment="Top" Text="{Binding Path=Model}" HorizontalAlignment="Left"/>
-        <Button Height="25" Click="Button_Click" Margin="109,374,0,0" HorizontalAlignment="Left" Width="86" VerticalAlignment="Top">Сохранить все</Button>
-        <Button Content="Назад" Click="Button_Click_1" HorizontalAlignment="Left" Margin="18,374,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
+        <Button Height="25" Click="All_Save_Click" Margin="109,374,0,0" HorizontalAlignment="Left" Width="86" VerticalAlignment="Top">Сохранить все</Button>
+        <Button Content="Назад" Click="BackPage_Click" HorizontalAlignment="Left" Margin="18,374,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
         <Label x:Name="lbl_Year" Content="Год выпуска" HorizontalAlignment="Left" Margin="18,94,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txb_Year" HorizontalAlignment="Left" Height="22" Margin="176,94,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="197" Text="{Binding Path=Year_Release}" />
         <Label x:Name="lbl_Color" Content="Цвет автомобиля" HorizontalAlignment="Left" Margin="18,134,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txb_Color" HorizontalAlignment="Left" Height="22" Margin="176,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="197" Text="{Binding Path=Color}" />
-        <Button Height="24" Click="Button_Click" Margin="207,374,0,0" Content="Удалить" HorizontalAlignment="Left" Width="86" VerticalAlignment="Top"/>
-        <Button Height="25" Click="Button_Click" Margin="305,374,0,0" Content="Редактировать" HorizontalAlignment="Left" Width="87" VerticalAlignment="Top"/>
+        <Button Height="24" Click="Delete_Click" Margin="207,374,0,0" Content="Удалить" HorizontalAlignment="Left" Width="86" VerticalAlignment="Top"/>
+        <Button Height="25" Click="Edits_Item_Click" Margin="305,374,0,0" Content="Редактировать" HorizontalAlignment="Left" Width="87" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Transmission" Content="Трансмиссия" HorizontalAlignment="Left"  Margin="18,164,0,0" VerticalAlignment="Top" Height="26"/>
         <TextBox Width="197" Height="25" x:Name="txb_Transmission" Margin="176,165,0,290" Text="{Binding Transmission}" HorizontalAlignment="Left"/>
         <Label x:Name="lbl_Eng_Volume" Content="Объем двигателя" HorizontalAlignment="Left" Margin="18,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>

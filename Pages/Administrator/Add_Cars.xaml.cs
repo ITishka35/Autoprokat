@@ -39,5 +39,25 @@ namespace Autoprokat.Pages.Administrator
         {
 
         }
+
+        private void All_Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Edits_Item_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
