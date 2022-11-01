@@ -21,7 +21,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" Height="288">
+                    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" Height="288" Margin="4,0,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70"/>
                             <RowDefinition Height="100"/>
@@ -46,19 +46,12 @@
                         <TextBlock Text="{Binding Deposit_Amount, StringFormat={}{0:N2} руб}" Grid.Row="2" Margin="200,0,0,25" FontSize="18" FontWeight="Bold" Width="200"/>
                         <Button HorizontalAlignment="Center" x:Name="Edit" Click="Edit_Click" Width="200" Height="25" Content="Редактировать " VerticalAlignment="Center" Margin="0,0,0,60" Grid.Row="3" ></Button>
                         <Button HorizontalAlignment="Stretch" x:Name="Del" Click="Del_Click" Width="100" Height="25" Content="Удалить" VerticalAlignment="Center" Margin="0,10,0,0" Grid.Row="3" ></Button>
+                        <TextBlock  Text="{Binding Path=TypeCars.Type}" Grid.Row="1" FontSize="14" Height="28" RenderTransformOrigin="-2.498,-1.34" Width="180" TextAlignment="Center" HorizontalAlignment="Stretch" Margin="208,70,0,0" VerticalAlignment="Stretch"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView x:Name="Boxs" BorderBrush="#FFCBE8F6" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  ScrollViewer.VerticalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=1}"
-                  Margin="282,140,36,0" Height="30" VerticalAlignment="Top" IsEnabled="False" Background="#FFCBE8F6">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock  Text="{Binding Type}" Grid.Row="1" FontSize="14" Height="28" RenderTransformOrigin="-2.498,-1.34" Width="179" TextAlignment="Center"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        
         <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="500" Margin="530,82,0,0" VerticalAlignment="Top" Width="484" Grid.Column="1">
 
         </DataGrid>

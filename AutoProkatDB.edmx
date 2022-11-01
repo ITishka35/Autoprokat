@@ -82,7 +82,7 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Workers">
+        <EntityType Name="WorkersAutoProkat">
           <Key>
             <PropertyRef Name="ID_Workers" />
           </Key>
@@ -135,12 +135,12 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Issued_Cars_Workers">
-          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1">
+          <End Role="WorkersAutoProkat" Type="Self.WorkersAutoProkat" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Issued_Cars" Type="Self.Issued_Cars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Workers">
+            <Principal Role="WorkersAutoProkat">
               <PropertyRef Name="ID_Workers" />
             </Principal>
             <Dependent Role="Issued_Cars">
@@ -199,7 +199,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeCars" EntityType="Self.TypeCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkersAutoProkat" EntityType="Self.WorkersAutoProkat" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cars_Type_Cars" Association="Self.FK_Cars_Type_Cars">
             <End Role="TypeCars" EntitySet="TypeCars" />
             <End Role="Cars" EntitySet="Cars" />
@@ -213,7 +213,7 @@
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Issued_Cars_Workers" Association="Self.FK_Issued_Cars_Workers">
-            <End Role="Workers" EntitySet="Workers" />
+            <End Role="WorkersAutoProkat" EntitySet="WorkersAutoProkat" />
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
@@ -263,7 +263,7 @@
           <EntitySet Name="sysdiagrams" EntityType="AutoProkatModel.sysdiagrams" />
           <EntitySet Name="TypeCars" EntityType="AutoProkatModel.TypeCars" />
           <EntitySet Name="Users" EntityType="AutoProkatModel.Users" />
-          <EntitySet Name="Workers" EntityType="AutoProkatModel.Workers" />
+          <EntitySet Name="WorkersAutoProkat" EntityType="AutoProkatModel.WorkersAutoProkat" />
           <AssociationSet Name="FK_Cars_Type_Cars" Association="AutoProkatModel.FK_Cars_Type_Cars">
             <End Role="TypeCars" EntitySet="TypeCars" />
             <End Role="Cars" EntitySet="Cars" />
@@ -277,7 +277,7 @@
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Issued_Cars_Workers" Association="AutoProkatModel.FK_Issued_Cars_Workers">
-            <End Role="Workers" EntitySet="Workers" />
+            <End Role="WorkersAutoProkat" EntitySet="WorkersAutoProkat" />
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Role" Association="AutoProkatModel.FK_Users_Role">
@@ -344,7 +344,7 @@
           <Property Name="Amount_Payable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Cars" FromRole="Issued_Cars" ToRole="Cars" />
           <NavigationProperty Name="Clients" Relationship="AutoProkatModel.FK_Issued_Cars_Clients" FromRole="Issued_Cars" ToRole="Clients" />
-          <NavigationProperty Name="Workers" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="Issued_Cars" ToRole="Workers" />
+          <NavigationProperty Name="WorkersAutoProkat" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="Issued_Cars" ToRole="WorkersAutoProkat" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -382,7 +382,7 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Role" Relationship="AutoProkatModel.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Workers">
+        <EntityType Name="WorkersAutoProkat">
           <Key>
             <PropertyRef Name="ID_Workers" />
           </Key>
@@ -391,7 +391,7 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Issued_Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="Workers" ToRole="Issued_Cars" />
+          <NavigationProperty Name="Issued_Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="WorkersAutoProkat" ToRole="Issued_Cars" />
         </EntityType>
         <Association Name="FK_Cars_Type_Cars">
           <End Type="AutoProkatModel.TypeCars" Role="TypeCars" Multiplicity="0..1">
@@ -436,12 +436,12 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Issued_Cars_Workers">
-          <End Type="AutoProkatModel.Workers" Role="Workers" Multiplicity="0..1">
+          <End Type="AutoProkatModel.WorkersAutoProkat" Role="WorkersAutoProkat" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="AutoProkatModel.Issued_Cars" Role="Issued_Cars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Workers">
+            <Principal Role="WorkersAutoProkat">
               <PropertyRef Name="ID_Workers" />
             </Principal>
             <Dependent Role="Issued_Cars">
@@ -575,9 +575,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Workers">
-            <EntityTypeMapping TypeName="AutoProkatModel.Workers">
-              <MappingFragment StoreEntitySet="Workers">
+          <EntitySetMapping Name="WorkersAutoProkat">
+            <EntityTypeMapping TypeName="AutoProkatModel.WorkersAutoProkat">
+              <MappingFragment StoreEntitySet="WorkersAutoProkat">
                 <ScalarProperty Name="Position" ColumnName="Position" />
                 <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

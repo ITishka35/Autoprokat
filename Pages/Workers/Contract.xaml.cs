@@ -54,5 +54,10 @@ namespace Autoprokat.Pages.Workers
                 doc.Close();
             }
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

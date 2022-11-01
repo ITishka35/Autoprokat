@@ -74,6 +74,7 @@
     <Compile Include="Cars.cs">
       <DependentUpon>AutoProkatDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\AppHelp.cs" />
     <Compile Include="Clients.cs">
       <DependentUpon>AutoProkatDB.tt</DependentUpon>
     </Compile>
@@ -122,7 +123,7 @@
     <Compile Include="Users.cs">
       <DependentUpon>AutoProkatDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Workers.cs">
+    <Compile Include="WorkersAutoProkat.cs">
       <DependentUpon>AutoProkatDB.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">

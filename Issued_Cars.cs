@@ -26,6 +26,6 @@ namespace Autoprokat
     
         public virtual Cars Cars { get; set; }
         public virtual Clients Clients { get; set; }
-        public virtual Workers Workers { get; set; }
+        public virtual WorkersAutoProkat WorkersAutoProkat { get; set; }
     }
 }

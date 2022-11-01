@@ -24,6 +24,7 @@ namespace Autoprokat.Pages.Administrator
         public Add_Cars()
         {
             InitializeComponent();
+            ListSpisok.ItemsSource = AppConnect.model.Cars.ToArray();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -57,6 +58,56 @@ namespace Autoprokat.Pages.Administrator
         }
 
         private void Edits_Item_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Search_Online(object sender, TextChangedEventArgs e)
+        {
+            ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).ToArray(); // Поиск по наименованию
+                                                                                                                  //Фильтрация по размеру скидки
+            if (cmbFilter.Text == "Седан")
+            {
+                ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+            }
+            else
+            {
+                if (cmbFilter.Text == "Хэчбэк")
+                {
+                    ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+                }
+                else
+                {
+
+                    if (cmbFilter.Text == "Кроссовер")
+                    {
+                        ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+                    }
+
+                    else
+                    {
+                        if (cmbFilter.Text == "Внедорожник")
+                        {
+                            ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray();
+                        }
+                        else
+                        {
+                            if (cmbFilter.Text == "Все")
+                            {
+                                ListSpisok.ItemsSource = AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).ToArray();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void cmbFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
