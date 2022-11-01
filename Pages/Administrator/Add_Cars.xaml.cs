@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autoprokat.AppConnestion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,7 @@ namespace Autoprokat.Pages.Administrator
 
         private void BackPage_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.Frames.Navigate(new Administrator());
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

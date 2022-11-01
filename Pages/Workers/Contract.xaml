@@ -15,6 +15,7 @@
         </DocumentViewer>
         <Button Content="Загрузить" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="112" Click="load_Click"/>
         <Button Content="Сохранить" HorizontalAlignment="Left" Margin="137,420,0,0" VerticalAlignment="Top" Width="112" Click="Save_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="662,420,0,0" VerticalAlignment="Top" Width="112" Click="Back_Click"/>
 
     </Grid>
 </Page>

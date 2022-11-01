@@ -28,11 +28,11 @@ namespace Autoprokat
         public string Transmission { get; set; }
         public string Engine_Volume { get; set; }
         public Nullable<int> Deposit_Amount { get; set; }
-        public Nullable<int> Type { get; set; }
+        public Nullable<int> ID_Type { get; set; }
         public int ID_Car { get; set; }
         public string State_Number { get; set; }
     
-        public virtual Type_Cars Type_Cars { get; set; }
+        public virtual TypeCars TypeCars { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Issued_Cars> Issued_Cars { get; set; }
     }

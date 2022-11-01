@@ -32,7 +32,7 @@ namespace Autoprokat
         public virtual DbSet<Issued_Cars> Issued_Cars { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Type_Cars> Type_Cars { get; set; }
+        public virtual DbSet<TypeCars> TypeCars { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Workers> Workers { get; set; }
     

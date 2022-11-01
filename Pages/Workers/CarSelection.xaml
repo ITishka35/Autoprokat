@@ -12,7 +12,7 @@
             <ColumnDefinition Width="78*"/>
             <ColumnDefinition Width="175*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Выбор автомобиля" FontSize="20" Margin="0,27,764,0" HorizontalAlignment="Right" Width="451" Height="45" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="Выбор автомобиля" FontSize="20" Margin="0,27,956,0" HorizontalAlignment="Right" Width="259" Height="45" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <ListView x:Name="ListSpisok" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="0,82,566,288" d:ItemsSource="{d:SampleData ItemCount=4}" Grid.ColumnSpan="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -38,7 +38,7 @@
                             </Image.Source>
                         </Image>
                         <TextBlock Text="{Binding Marks}" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Margin="5,10,200,0" FontSize="20" Grid.Row="0"/>
-                        <Image Source="{Binding MainImagePath}" HorizontalAlignment="Stretch" Height="100" Width="101.2" Grid.Row="1" Margin="0,0,300,0" Stretch="Fill"/>
+                        <Image Source="{Binding MainImagePath}" HorizontalAlignment="Stretch" Height="100" Width="100" Grid.Row="1" Margin="0,0,300,0" Stretch="Fill"/>
                         <TextBlock Text="{Binding Model}" VerticalAlignment="Stretch" TextAlignment="Center" Width="Auto" TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="211,10,61,33" FontSize="20" Grid.Row="0"></TextBlock>
                         <TextBlock Text="{Binding Year_Release }" Grid.Row="1" FontSize="14" Foreground="Green" HorizontalAlignment="Stretch" Height="30" Margin="268,0,0,50" Width="Auto"/>
                         <TextBlock Text="{Binding Transmission }" Grid.Row="1" FontSize="14" Foreground="Red" HorizontalAlignment="Right"  Margin="0,0,0,25" VerticalAlignment="Bottom" Height="28" Width="132"/>
@@ -52,14 +52,16 @@
         </ListView>
         <ListView x:Name="Boxs" BorderBrush="#FFCBE8F6" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.VerticalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=1}"
-                  Margin="282,146,36,0" Height="30" VerticalAlignment="Top" IsEnabled="False" Background="#FFCBE8F6">
+                  Margin="282,140,36,0" Height="30" VerticalAlignment="Top" IsEnabled="False" Background="#FFCBE8F6">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock  Text="{Binding Type}" Grid.Row="1" FontSize="14" Height="28" RenderTransformOrigin="-2.498,-1.34" Width="179" TextAlignment="Center"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="500" Margin="530,82,0,0" VerticalAlignment="Top" Width="484" Grid.Column="1"/>
+        <DataGrid Name="DataGrid1" HorizontalAlignment="Left" Height="500" Margin="530,82,0,0" VerticalAlignment="Top" Width="484" Grid.Column="1">
+
+        </DataGrid>
         <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="502,0,36,265" Grid.Column="1">
             <ListBox x:Name="RedList" Margin="10,5,36,0" Height="600">
                 <ListBox.ItemTemplate>
@@ -81,5 +83,6 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+        <Button Content="Назад" Click="BackPage" HorizontalAlignment="Left" Margin="78,641,0,0" VerticalAlignment="Top" Height="25" Width="99"/>
     </Grid>
 </Page>

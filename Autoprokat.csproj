@@ -86,6 +86,15 @@
     <Compile Include="Pages\Administrator\Add_Workers.xaml.cs">
       <DependentUpon>Add_Workers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Workers\Accountant\ReportClients.xaml.cs">
+      <DependentUpon>ReportClients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Workers\Accountant\ReportDurationRent.xaml.cs">
+      <DependentUpon>ReportDurationRent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Workers\Accountant\ReportQuantityCarsIssued.xaml.cs">
+      <DependentUpon>ReportQuantityCarsIssued.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Workers\AddedClients.xaml.cs">
       <DependentUpon>AddedClients.xaml</DependentUpon>
     </Compile>
@@ -107,7 +116,7 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>AutoProkatDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Type_Cars.cs">
+    <Compile Include="TypeCars.cs">
       <DependentUpon>AutoProkatDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
@@ -153,6 +162,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Workers\Accountant\AccountantMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Workers\Accountant\ReportClients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Workers\Accountant\ReportDurationRent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Workers\Accountant\ReportQuantityCarsIssued.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,6 +261,11 @@
       <DependentUpon>AutoProkatDB.edmx</DependentUpon>
       <LastGenOutput>AutoProkatDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\UAZ.jpg" />
+    <Resource Include="Images\SHNIVA.jpg" />
+    <Resource Include="Images\PRADA300.jpg" />
+    <Resource Include="Images\POLO.PNG" />
+    <Resource Include="Images\LADA.jpg" />
     <Resource Include="Path\LADA.jpg" />
     <Resource Include="Path\POLO.PNG" />
     <Resource Include="Path\PRADA300.jpg" />

@@ -41,5 +41,11 @@ namespace Autoprokat.Pages.Workers
             AppFrame.Frames.Navigate(new CarSelection());
 
         }
+
+        private void Contract_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new Contract());
+
+        }
     }
 }

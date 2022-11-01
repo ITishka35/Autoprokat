@@ -12,10 +12,10 @@ namespace Autoprokat
     using System;
     using System.Collections.Generic;
     
-    public partial class Type_Cars
+    public partial class TypeCars
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Type_Cars()
+        public TypeCars()
         {
             this.Cars = new HashSet<Cars>();
         }

@@ -26,7 +26,7 @@ namespace Autoprokat.Pages.Workers
             InitializeComponent();
             ListSpisok.ItemsSource = AppConnect.model.Cars.ToArray();
             DataGrid1.ItemsSource = AppConnect.model.Cars.ToArray();
-            Boxs.ItemsSource = AppConnect.model.Type_Cars.ToArray();
+            Boxs.ItemsSource = AppConnect.model.TypeCars.ToArray();
 
         }
 
@@ -49,6 +49,11 @@ namespace Autoprokat.Pages.Workers
         private void AddPicture_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new Manager());
         }
     }
 }
