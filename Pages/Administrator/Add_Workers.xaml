@@ -6,21 +6,41 @@
       xmlns:local="clr-namespace:Autoprokat.Pages.Administrator"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-      Title="Add_Workers">
+      Title="Add_Workers"  Height="650" Width="1100" MinHeight="800" MinWidth="1100">
+
 
     <Grid x:Name="Added">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="257*"/>
+            <RowDefinition Height="298*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="104*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="177*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
 
-        <Label Content="Фамилия" HorizontalAlignment="Left"  Margin="24,44,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox Height="24" x:Name="LastNameTXT" Margin="121,48,0,0" Text="{Binding LastName}" HorizontalAlignment="Left" Width="263" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_FirstName" Content="Имя" HorizontalAlignment="Left" Margin="24,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="28"/>
-        <TextBox Height="24" x:Name="FirstNameTXT" Margin="121,82,0,0" VerticalAlignment="Top" Text="{Binding Path=FirstName}" HorizontalAlignment="Left" Width="263"/>
-        <Button Height="26" Width="100" Click="AllSave_Click" Margin="111,206,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">Сохранить все</Button>
-        <Button Content="Назад" Click="BackPage_Click" HorizontalAlignment="Left" Margin="26,206,0,0" VerticalAlignment="Top" Width="80" Height="26"/>
-        <Label Content="Отчество" HorizontalAlignment="Left" Margin="24,118,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="MiddleNameTXT" HorizontalAlignment="Left" Height="22" Margin="121,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Path=MiddleName}" />
-        <Label Content="Должность" HorizontalAlignment="Left" Margin="24,158,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PositionTXT" HorizontalAlignment="Left" Height="22" Margin="121,160,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="263" Text="{Binding Path=Position}" />
-        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="451,107,0,0" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="325" Height="338" VerticalAlignment="Top">
+        <Label Content="Фамилия" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Grid.Row="1" Width="60"/>
+        <TextBox Height="24" x:Name="LastNameTXT" Margin="15,10,0,0" Text="{Binding LastName}" HorizontalAlignment="Left" Width="263" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="lbl_FirstName" Content="Имя" HorizontalAlignment="Left" Margin="24,1,0,0" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Height="28" Grid.Row="2" Width="33"/>
+        <TextBox Height="24" x:Name="FirstNameTXT" Margin="15,7,0,0" VerticalAlignment="Center" Text="{Binding Path=FirstName}" HorizontalAlignment="Left" Width="263" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button Height="26" Width="100" Click="AllSave_Click" Margin="35,16,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.05,0.423" Grid.Column="2" Grid.Row="5">Сохранить все</Button>
+        <Button Content="Назад" Click="BackPage_Click" HorizontalAlignment="Left" Margin="17,16,0,0" VerticalAlignment="Top" Width="80" Height="26" Grid.Column="1" Grid.Row="5"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Center" Grid.Row="3" Height="25" Width="61"/>
+        <TextBox x:Name="MiddleNameTXT" HorizontalAlignment="Left" Height="22" Margin="15,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="263" Text="{Binding Path=MiddleName}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" />
+        <Label Content="Должность" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Center" Grid.Row="4" Height="26" Width="71"/>
+        <TextBox x:Name="PositionTXT" HorizontalAlignment="Left" Height="22" Margin="15,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="263" Text="{Binding Path=Position}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" />
+        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="8,10,0,61" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="326" Grid.Column="5" Grid.RowSpan="6" Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="395" Width="315"/>
@@ -54,7 +74,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="13,237,0,0" HorizontalAlignment="Left" Width="405" Height="245" VerticalAlignment="Top">
+        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="23,2,0,0" HorizontalAlignment="Left" Width="405" Height="245" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="6">
             <ListBox x:Name="RedList"   Margin="10,10,0,10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -76,11 +96,11 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <Label Content="Справочник сотрудников" FontSize="16" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" Width="274"/>
-        <Label Content="Поиск" HorizontalAlignment="Left" Margin="451,39,0,0" VerticalAlignment="Top"/>
-        <Label Content="Тип авто" HorizontalAlignment="Left" Margin="451,68,0,0" VerticalAlignment="Top"/>
-        <TextBox  x:Name="txtbLastName" HorizontalAlignment="Left" Margin="526,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Search_Online"/>
-        <ComboBox HorizontalAlignment="Left" Margin="526,74,0,0" VerticalAlignment="Top" Width="120" Name="cmbFilter" TextBoxBase.TextChanged="cmbFilter_TextChanged" SelectionChanged="cmbFilter_SelectionChanged">
+        <Label Content="Справочник сотрудников" FontSize="16" HorizontalAlignment="Left" Margin="26,6,0,0" VerticalAlignment="Top" Width="274" Grid.ColumnSpan="3" Grid.RowSpan="2" Height="32"/>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Height="26" Width="44"/>
+        <Label Content="Тип авто" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" Height="26" Width="58"/>
+        <TextBox  x:Name="txtbLastName" HorizontalAlignment="Left" Margin="4,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="Search_Online" Grid.Column="4" Grid.Row="1" Height="18"/>
+        <ComboBox HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="120" Name="cmbFilter" TextBoxBase.TextChanged="cmbFilter_TextChanged" SelectionChanged="cmbFilter_SelectionChanged" Grid.Column="4" Grid.Row="2" Height="22">
             <ComboBoxItem >
                 <TextBlock Text="Менеджер"/>
             </ComboBoxItem>

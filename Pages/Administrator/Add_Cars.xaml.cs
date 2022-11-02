@@ -41,7 +41,8 @@ namespace Autoprokat.Pages.Administrator
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-
+            RedList.ItemsSource = ListSpisok.SelectedItems;
+            Red.Visibility = Visibility.Hidden;
         }
 
         private void All_Save_Click(object sender, RoutedEventArgs e)
@@ -130,9 +131,6 @@ namespace Autoprokat.Pages.Administrator
             }
         }
 
-        private void Edits_Item_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

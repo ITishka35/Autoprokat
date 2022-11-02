@@ -4,13 +4,25 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Autoprokat.Pages.Administrator"
-      mc:Ignorable="d" d:DesignWidth="943"
-      Title="Administrator" MinHeight="600" MinWidth="980">
+      mc:Ignorable="d"
+      Title="Administrator" Height="763" Width="1100" MinHeight="800" MinWidth="1100">
 
-    <Grid Width="980" Height="605">
-        <Button Content="Ведение справочника сотрудников" Margin="0,155,0,0" Click="AddWorkers_Click" HorizontalAlignment="Center" Width="286" Height="24" VerticalAlignment="Top"/>
-        <Button Content="Ведение справочника автомобилей" Margin="0,201,0,0" Click="AddCars_Click" HorizontalAlignment="Center" Width="286" Height="24" VerticalAlignment="Top"/>
-        <Button Content="Назад" Margin="347,147,347,228" Click="OnBack_Click" Height="24"/>
+    <Grid Margin="0,10,0,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="195*"/>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="196*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="143*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="388*"/>
+        </Grid.RowDefinitions>
+        <Button  Content="Ведение справочника сотрудников" Margin="28,10,28,10" Click="AddWorkers_Click" Grid.Row="2" Grid.Column="1"/>
+        <Button  Content="Ведение справочника автомобилей" Margin="27,10,27,10" Click="AddCars_Click" Grid.Row="1" Grid.Column="1"/>
+        <Button  Content="Назад" Margin="27,10,27,14" Click="OnBack_Click" Grid.Row="3" Grid.Column="1"   />
 
     </Grid>
 </Page>

@@ -6,21 +6,23 @@
         xmlns:local="clr-namespace:Autoprokat"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="1000" Width="1400" MinHeight="616" MinWidth="1500">
+        Title="MainWindow" Height="650" Width="1100" MinHeight="800" MinWidth="1100">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="199*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="344*"/>
+            <ColumnDefinition Width="747*"/>
+            <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
         <Menu HorizontalAlignment="Left" Height="20" Width="94" Margin="4,4,0,0" VerticalAlignment="Top">
             <MenuItem Header="Файл" Height="20">
             </MenuItem>
             <MenuItem Header="Выйти" Click="OnExit" Height="20"/>
         </Menu>
-        <Image Source="/guokp.png" Width="87" Height="89" HorizontalAlignment="Left" Margin="309,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,0.54"/>
-
-        <Label Content="ИС Автопрокат" Height="33" Margin="425,54,0,0" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="18"/>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"  Margin="10,119,4,0"/>
+        <StackPanel Grid.ColumnSpan="2" Margin="0,29,0,0" Orientation="Horizontal" Height="86" VerticalAlignment="Top">
+            <Image Source="/guokp.png" Height="80" RenderTransformOrigin="0.54,0.54" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="420,0,0,0"/>
+            <Label Content="ИС Автопрокат" Margin="20,0,0,0" FontSize="18" Grid.Column="1" Grid.Row="1" Width="400" Height="40" Panel.ZIndex="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"  Margin="10,147,10,10" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

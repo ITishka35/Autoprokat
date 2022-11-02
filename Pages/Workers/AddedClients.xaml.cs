@@ -27,10 +27,35 @@ namespace Autoprokat.Pages.Workers
 
         private void SaveAll_Click(object sender, RoutedEventArgs e)
         {
-
+            Clients clients = new Clients
+            {
+                LastName = txt_LastName.Text,
+                FirstName = txt_FirstName.Text,
+                MiddleName = txt_MiddleName.Text,
+                NumberPassport = txt_NumberPassport.Text,
+                SeriaPassport = txt_SeriasPassport.Text,
+                Phone = txt_Phone.Text,
+                Birthday = DateTime.Parse(txt_Birthday.Text),
+                Adress = txt_Address.Text,
+            };
         }
 
         private void BackPage(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void save_Click(object sender, RoutedEventArgs e)
         {
 
         }

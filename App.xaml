@@ -4,15 +4,19 @@
              xmlns:local="clr-namespace:Autoprokat"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="WrapPanel" x:Key="WrapPanelProgramm">
-            <Setter Property="ItemWidth" Value="150"/>
-            <Setter Property="ItemHeight" Value="30"/>
-            <Setter Property="Margin" Value="3"/>
-            <Setter Property="MinWidth" Value="100"/>
-            <Setter Property="MaxWidth" Value="100"/>
-            <Setter Property="Background" Value="#FFBBADAD"/>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="6" Background="{TemplateBinding Background}">
 
-
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
-    </Application.Resources> 
+    </Application.Resources>
+
 </Application>
