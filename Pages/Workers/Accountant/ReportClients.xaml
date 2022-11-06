@@ -9,6 +9,7 @@
       Title="ReportClients">
 
     <Grid>
-        
+        <Button x:Name="btn_Report" Click="btn_Report_Click" Content="Button" HorizontalAlignment="Left" Margin="528,404,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

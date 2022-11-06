@@ -23,6 +23,13 @@ namespace Autoprokat.Pages.Workers.Accountant
         public ReportClients()
         {
             InitializeComponent();
+
+
+        }
+
+        private void btn_Report_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

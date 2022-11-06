@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autoprokat.AppConnestion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Autoprokat.Pages.Workers
     /// </summary>
     public partial class AddedClients : Page
     {
+        private int ID;
         public AddedClients()
         {
             InitializeComponent();
@@ -38,26 +40,47 @@ namespace Autoprokat.Pages.Workers
                 Birthday = DateTime.Parse(txt_Birthday.Text),
                 Adress = txt_Address.Text,
             };
+            AppConnect.model.Clients.Add(clients);
+            AppConnect.model.SaveChanges();
+            MessageBox.Show("Запись была добавлена!");
         }
 
         private void BackPage(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.Frames.Navigate(new Manager());
         }
 
         private void Del_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                AppConnect.model.Clients.Remove(AppConnect.model.Clients.Where(p => p.ID_Client == ID).FirstOrDefault());
+                AppConnect.model.SaveChanges();
+                MessageBox.Show("Запись удалена");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" " + ex);
+            }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-
+            RedList.ItemsSource = ListSpisok.SelectedItems;
+            Red.Visibility = Visibility.Visible;
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
+            RedList.ItemsSource = ListSpisok.SelectedItems;
+            Red.Visibility = Visibility.Hidden;
+        }
 
+        private void ListSpisok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBox listBox = (ListBox)sender;
+            Cars car = (Cars)listBox.Items[listBox.SelectedIndex];
+            ID = int.Parse(car.ID_Car.ToString());
         }
     }
 }

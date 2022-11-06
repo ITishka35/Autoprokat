@@ -6,6 +6,9 @@
       xmlns:local="clr-namespace:Autoprokat.Pages.Administrator"
       mc:Ignorable="d"
       Title="Add_Cars" MinHeight="616" MinWidth="1100" Height="514" Width="1036">
+    <Page.Resources>
+        <AlternationConverter x:Key="AlternationConverter"/>
+    </Page.Resources>
 
     <Grid x:Name="Dobav" Margin="0,0,10,0">
         <Grid.RowDefinitions>
@@ -20,7 +23,9 @@
             <RowDefinition Height="41*"/>
             <RowDefinition Height="36*"/>
             <RowDefinition Height="36*"/>
-            <RowDefinition Height="126*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="55*"/>
             <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -33,32 +38,51 @@
         </Grid.ColumnDefinitions>
 
 
-        <Label x:Name="lbl_Marks" Content="Марка автомобиля" HorizontalAlignment="Left"  Margin="6,18,0,0" VerticalAlignment="Top" Height="26" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Width="115"/>
-        <TextBox Width="196" x:Name="txb_MarkAuto" Margin="15,15,0,2" Text="{Binding Path=Marks}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
-        <Label x:Name="lbl_Model" Content="Модель автомобиля" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Height="28" Grid.Row="2" Grid.Column="1" Width="122"/>
-        <TextBox Height="24" Width="196" x:Name="txb_Model" Margin="15,0,0,0" VerticalAlignment="Center" Text="{Binding Path=Model}" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2"/>
-        <Button Height="26" Click="All_Save_Click" Margin="145,0,0,0" HorizontalAlignment="Left" Width="88" VerticalAlignment="Center" Grid.Row="10" Grid.Column="2">Сохранить все</Button>
-        <Button Content="Назад" Click="BackPage_Click" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Center" Width="80" Height="26" Grid.Row="10" Grid.Column="1"/>
-        <Label x:Name="lbl_Year" Content="Год выпуска" HorizontalAlignment="Left" Margin="6,8,0,0" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1" Height="26" Width="78"/>
-        <TextBox x:Name="txb_Year" HorizontalAlignment="Left" Height="22" Margin="15,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding Path=Year_Release}" Grid.Row="3" Grid.Column="2" />
-        <Label x:Name="lbl_Color" Content="Цвет автомобиля" HorizontalAlignment="Left" Margin="6,11,0,0" VerticalAlignment="Top" Grid.Row="4" Grid.Column="1" Height="26" Width="106"/>
-        <TextBox x:Name="txb_Color" HorizontalAlignment="Left" Height="22" Margin="15,11,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding Path=Color}" Grid.Row="4" Grid.Column="2" />
-        <Label x:Name="lbl_Transmission" Content="Трансмиссия" HorizontalAlignment="Left"  Margin="6,2,0,0" VerticalAlignment="Top" Height="26" Grid.Row="5" Grid.Column="1" Width="81"/>
-        <TextBox Width="196" x:Name="txb_Transmission" Margin="15,5,0,6" Text="{Binding Transmission}" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="2"/>
-        <Label x:Name="lbl_Eng_Volume" Content="Объем двигателя" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Height="28" Grid.Row="6" Grid.Column="1" Width="105"/>
-        <TextBox Height="24" Width="196" x:Name="txb_Eng_Volume" Margin="15,2,0,0" VerticalAlignment="Top" Text="{Binding Engine_Volume}" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="2"/>
-        <Label x:Name="lbl_Depos_Amount" Content="Сумма залога" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1" Height="25" Width="85"/>
-        <TextBox x:Name="txb_Amount_Deposit" HorizontalAlignment="Left" Height="22" Margin="15,4,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding Deposit_Amount}" Grid.Row="7" Grid.Column="2" />
-        <Label x:Name="lbl_State_Num" Content="Госномер" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" Grid.Row="8" Grid.Column="1" Height="26" Width="64"/>
-        <TextBox x:Name="txb_State_Number" HorizontalAlignment="Left" Height="22" Margin="15,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="196" Text="{Binding TypeCars.Type}" Grid.Row="9" Grid.Column="2" />
-        <Label x:Name="lbl_TypeAuto" Content="Тип авто" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Center" Grid.Row="9" Grid.Column="1" Height="26" Width="58"/>
-        <TextBox x:Name="txb_TypeAuto" HorizontalAlignment="Left" Height="22" Margin="15,8,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="196" Text="{Binding State_Number}" Grid.Row="8" Grid.Column="2" />
-        <Image  x:Name="imagePath1" Margin="43,8,28,11" Source="{Binding Path=MainImagePath}" Grid.Column="3" Grid.Row="5" Grid.RowSpan="4"/>
-        <TextBlock x:Name="imagePath" Text="{Binding Path=MainPathImage}" Margin="5,2,421,1" Grid.Column="3" Grid.Row="9" Grid.ColumnSpan="2"/>
-        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="8,6,14,13" d:ItemsSource="{d:SampleData ItemCount=4}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="11">
+        <Label x:Name="lbl_Marks" Content="Марка автомобиля"  Margin="17,8,17,8" Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="lbl_Model" Content="Модель автомобиля" HorizontalAlignment="Center" Margin="6,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Grid.Row="2" Grid.Column="1"/>
+        <Label x:Name="lbl_Year" Content="Год выпуска" HorizontalAlignment="Center" Margin="6,8,0,0" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+        <Label x:Name="lbl_Color" Content="Цвет автомобиля" HorizontalAlignment="Center" Margin="6,11,0,0" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
+        <Label x:Name="lbl_Transmission" Content="Трансмиссия" HorizontalAlignment="Center"  Margin="6,2,0,0" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
+        <Label x:Name="lbl_Eng_Volume" Content="Объем двигателя" HorizontalAlignment="Center" Margin="6,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Grid.Row="6" Grid.Column="1"/>
+        <Label x:Name="lbl_Depos_Amount" Content="Сумма залога" HorizontalAlignment="Center" Margin="6,0,0,0" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1"/>
+        <Label x:Name="lbl_TypeAuto" Content="Тип авто" HorizontalAlignment="Center" Margin="6,0,0,0" VerticalAlignment="Center" Grid.Row="9" Grid.Column="1" Height="Auto"/>
+        <Label x:Name="lbl_Engine" Content="Тип двигателя" HorizontalAlignment="Center" Margin="6,0,0,0" VerticalAlignment="Center" Grid.Row="10" Grid.Column="1" Width="Auto"/>
+        <Label x:Name="lbl_State_Num" Content="Госномер" HorizontalAlignment="Center" Margin="6,10,0,0" VerticalAlignment="Center" Grid.Row="8" Grid.Column="1"/>
+        <TextBox Width="200" x:Name="txb_MarkAuto" Margin="0,0,0,0" Text="{Binding Path=Marks}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" Height="25" VerticalAlignment="Center"/>
+        <TextBox Height="25" Width="200" x:Name="txb_Model" Margin="0,0,0,0" VerticalAlignment="Center" Text="{Binding Path=Model}" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+        <Button x:Name="btn_AllSave" Height="26" Click="All_Save_Click" Margin="0,0,0,0" HorizontalAlignment="Right" Width="88" VerticalAlignment="Center" Grid.Row="12" Grid.Column="2">Сохранить все</Button>
+        <Button x:Name="btn_GoBack" Content="Назад" Click="BackPage_Click" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="80" Height="26" Grid.Row="12" Grid.Column="1"/>
+        <DatePicker SelectedDateFormat="Short" x:Name="txb_Year" HorizontalAlignment="Center" Height="25"  VerticalAlignment="Center" Width="200"    Grid.Row="3" Grid.Column="2" >
+
+        </DatePicker>
+        <TextBox x:Name="txb_Color" HorizontalAlignment="Center" Height="25" Margin="0,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Text="{Binding Path=Color}" Grid.Row="4" Grid.Column="2" />
+        <ComboBox x:Name="cmb_TypeTransmission" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200"  Grid.Row="5" Grid.Column="2" Margin="0,0,0,0"   />
+        <TextBox Height="25" Width="200" x:Name="txb_Eng_Volume" Margin="0,0,0,0" VerticalAlignment="Center" Text="{Binding Engine_Volume}" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="2"/>
+        <TextBox x:Name="txb_Amount_Deposit" HorizontalAlignment="Center" Height="25" Margin="0,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Text="{Binding Deposit_Amount}" Grid.Row="7" Grid.Column="2" />
+        <ComboBox   x:Name="cmb_Engine" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200"  Grid.Row="10" Grid.Column="2" Margin="0,0,0,0" Visibility="Visible"  />
+
+
+        <ComboBox x:Name="cmb_TypeAuto" HorizontalAlignment="Center" Height="25" Margin="0,0,0,0" VerticalAlignment="Center" Width="200"  Grid.Row="9" Grid.Column="2" />
+        <TextBox x:Name="txb_State_Number" HorizontalAlignment="Center" Height="25" Margin="0,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Text="{Binding State_Number}" Grid.Row="8" Grid.Column="2" />
+        <Image  x:Name="imagePath1" Margin="36,26,36,8" Source="{Binding Path=MainImagePath}" Grid.Column="3" Grid.Row="10" Grid.RowSpan="4"/>
+        <TextBlock x:Name="imagePath" Text="{Binding Path=MainPathImage}" Margin="5,2,10,1" Grid.Column="3" Grid.Row="9"/>
+        <!--<TextBox x:Name="txt_Edit_Model" Width="200" Height="25" Text="{Binding Model}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Visibility="Hidden"/>
+        <TextBox x:Name="txt_Edit_Marks" Width="200" Text="{Binding Marks}" Height="25" Visibility="Hidden" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"/>
+        <TextBox x:Name="txt_Edit_Year" Width="200" Text="{Binding Year_Release}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Height="25" Margin="0,0,0,0" Visibility="Hidden" />
+        <ComboBox  SelectionChanged="cmb_EditType_SelectionChanged"  ItemsSource="{Binding ''}" SelectedValue="ID_Type" DisplayMemberPath="Type" x:Name="cmb_EditType" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200"  Grid.Row="9" Grid.Column="2" Margin="0,0,0,0" Visibility="Hidden"  />
+        <ComboBox  SelectionChanged="cmb_EditEngine_SelectionChanged"  ItemsSource="{Binding ''}" SelectedValue="ID_Type" DisplayMemberPath="Type" x:Name="cmb_EditEngine" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200"  Grid.Row="10" Grid.Column="2" Margin="0,0,0,0" Visibility="Hidden"  />
+        <TextBox x:Name="txt_EditColor" Width="200" Text="{Binding Color}" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" Margin="0,0,0,0" Visibility="Hidden" />
+        <ComboBox SelectionChanged="cmb_EditType_SelectionChanged"  ItemsSource="{Binding ''}" SelectedValue="ID_Type" DisplayMemberPath="Type" x:Name="cmb_EditTypeTransmission" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200"  Grid.Row="5" Grid.Column="2" Margin="0,0,0,0" Visibility="Hidden"   />
+        <TextBox x:Name="txt_EditEngine_Volume" Width="200" Text="{Binding Engine_Volume}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="6" Height="25" Margin="0,0,0,0" Visibility="Hidden" />
+        <TextBox x:Name="txt_Edit_Depos_Amount" Width="200" Text="{Binding Deposit_Amount}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2" Height="25" Margin="0,0,0,0" Visibility="Hidden" />
+        <TextBox x:Name="txt_EditStateNumber" Width="200" Height="25" Text="{Binding State_Number}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" Grid.Column="2" Margin="0,0,0,0" Visibility="Hidden"/>
+        <Button Width="200" Margin="0,0,0,0" Height="25" Content="Сохранить"  Click="save_Click" x:Name="save" Grid.ColumnSpan="2" Grid.Row="12" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>-->
+
+
+        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="ListSpisok_SelectionChanged"  HorizontalContentAlignment="Center" Margin="8,6,14,18" d:ItemsSource="{d:SampleData ItemCount=2}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="11">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" Height="395" Width="335"/>
+                    <WrapPanel Orientation="Horizontal" Height="auto" Width="335"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
@@ -93,10 +117,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Content="Поиск" Margin="14,10,162,6" Grid.Column="3" Grid.Row="1"/>
-        <Label Content="Тип авто" Margin="14,10,148,6" Grid.Column="3" Grid.Row="2"/>
+        <Label x:Name="lbl_Search" Content="Поиск" Margin="14,10,162,6" Grid.Column="3" Grid.Row="1"/>
+        <Label x:Name="lbl_TypeAuto_Sort" Content="Тип авто" Margin="14,10,148,6" Grid.Column="3" Grid.Row="2"/>
         <TextBox  x:Name="txtbMarks" Margin="90,14,10,10" TextWrapping="Wrap" Text="" TextChanged="Search_Online" Grid.Column="3" Grid.Row="1"/>
-        <ComboBox Margin="90,13,10,7" x:Name="cmbFilter" TextBoxBase.TextChanged="cmbFilter_TextChanged" SelectionChanged="cmbFilter_SelectionChanged" Grid.Column="3" Grid.Row="2">
+        <ComboBox Margin="90,13,10,7" x:Name="cmbFilter" Grid.Column="3" Grid.Row="2">
             <ComboBoxItem >
                 <TextBlock Text="Седан"/>
             </ComboBoxItem>
@@ -113,39 +137,72 @@
                 <TextBlock Text="Все"/>
             </ComboBoxItem>
         </ComboBox>
-        <Label Content="Справочник автомобилей" FontSize="20" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Width="361" Height="41" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="14,6,10,13" Grid.ColumnSpan="3" Grid.RowSpan="11" Grid.Row="1">
-            <ListBox x:Name="RedList" Background="White"  Margin="10,0,0,10" Visibility="Visible">
+        <Label x:Name="lbl_Auto_Page" Content="Справочник автомобилей" FontSize="20" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Width="361" Height="41" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="10,0,214,13" Grid.ColumnSpan="3" Grid.RowSpan="12" Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="36*"/>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="142*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="103*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <ListBox x:Name="RedList" Background="White"  Margin="10,0,0,10" Visibility="Visible" Grid.RowSpan="5" Grid.ColumnSpan="3" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Width="250" Orientation="Vertical">
-                                <Label Content="Марка" />
-                                <TextBox Width="200"  Margin="-45,0,0,0" Text="{Binding Path=Marks}" Height="20" ></TextBox>
-                                <Label >Модель</Label>
-                                <TextBox Width="200" Margin="-45,0,0,0" Height="20" Text="{Binding Path=Model}"></TextBox>
-                                <Label Content="Год выпуска"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Year_Release}" ></TextBox>
-                                <Label Content="Цвет"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Color}" ></TextBox>
-                                <Label Content="Трансмиссия"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Transmission}" ></TextBox>
-                                <Label Content="Объем двигателя"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Engine_Volume}" ></TextBox>
-                                <Label Content="Сумма залога"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Deposit_Amount}" ></TextBox>
-                                <Label Content="Тип авто"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=TypeCars.Type}" ></TextBox>
-                                <Label Content="Госномер" x:Name="MiddleName" Height="25" Width="200" Margin="-50,0,0,0" />
-                                <TextBox x:Name="StateNumber" Width="200" Height="20"  Margin="-45,0,0,0" Text="{Binding Path=State_Number}"/>
-                                <Button Width="200" Margin="-45,10,0,0" Height="25" Content="Сохранить"  Click="save_Click" Name="save"/>
+                        <StackPanel Orientation="Horizontal" Height="415">
+                            <StackPanel Width="355" Orientation="Vertical" Height="412">
+                                <StackPanel Width="355" Orientation="Horizontal" Height="366" Margin="0,0,0,0">
+                                    <StackPanel Orientation="Vertical" Width="150" Height="367" VerticalAlignment="Top" Margin="0,-1,0,0">
+                                        <Label Content="Марка" Width="145" Margin="0,8,0,0" HorizontalAlignment="Left" />
+                                        <Label Content="Модель" Margin="0,5,0,0" Width="145" HorizontalAlignment="Left"/>
+                                        <Label Content="Цвет" Margin="0,5,0,0" Width="145" HorizontalAlignment="Left"/>
+                                        <Label Content="Год выпуска" Margin="0,5,0,0" Width="145" HorizontalAlignment="Left"/>
 
+                                        <Label Content="Объем двигателя" Margin="0,5,0,0" Width="145" HorizontalAlignment="Left"/>
+                                        <Label Content="Сумма залога" Margin="0,5,0,0" Width="145" HorizontalAlignment="Left"/>
+                                        <Label Content="Госномер" x:Name="lbl_state_number" Height="25" Width="145" Margin="0,5,0,0" HorizontalAlignment="Left" />
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Height="318" Width="200" VerticalAlignment="Top"  Margin="0,0,0,0">
+                                        <TextBox Width="200"  Margin="-45,12,0,0" Text="{Binding Path=Marks}" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                                        <TextBox Width="200" Margin="-45,7,0,0" Height="20" Text="{Binding Path=Model}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                        <TextBox Width="200" Margin="-45,13,0,0" Text="{Binding Path=Color}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" />
+                                        <TextBox Width="200" Margin="-45,9,0,0" Text="{Binding Year_Release}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" />
+                                        <TextBox Width="200" Margin="-45,9,0,0" Text="{Binding Engine_Volume}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" />
+                                        <TextBox Width="200" Margin="-45,14,0,0" Text="{Binding Path=Deposit_Amount}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" ></TextBox>
+                                        <TextBox x:Name="StateNumber" Width="200" Height="20"  Margin="0,13,0,0" Text="{Binding State_Number}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                    </StackPanel>
+
+
+                                </StackPanel>
+                                <Button Width="200" Margin="0,10,0,0" Height="25" Content="Сохранить"  Click="save_Click" Name="save" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+        <StackPanel x:Name="StackEdit" Visibility="Visible" Orientation="Vertical" Grid.Row="3" Grid.Column="3" Margin="0,0,0,15" Grid.RowSpan="6">
+            <Label x:Name="lbl_edittrans" Content="Трансмиссия" Margin ="10,0,0,6" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <ComboBox  DisplayMemberPath="Transmission" x:Name="cmb_EditTypeTransmission" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Margin="0,0,0,0" Grid.Column="3" Grid.Row="7" IsEditable="True" >
+                <ComboBoxItem >
+                    <TextBlock Text="МКПП"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Text="АКПП"/>
+                </ComboBoxItem>
+            </ComboBox>
+            <Label x:Name="lbl_edittype" Content="Тип авто" Margin="10,3,0,5" Grid.Row="4" Grid.Column="3"/>
+            <ComboBox x:Name="cmb_EditType" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Grid.Column="3" Grid.Row="3" Margin="0,0,0,0"   />
+            <Label Content="Тип двигателя" x:Name="lbl_edittypeEngine" Width="180" Margin="10,0,0,0" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ComboBox  x:Name="cmb_EditEngine" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Margin="0,0,0,0" Grid.Row="5" Grid.Column="3"  />
+        </StackPanel>
     </Grid>
+
 
 </Page>

@@ -47,7 +47,7 @@
         <TextBox x:Name="txt_Phone" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Text="{Binding Phone}" Grid.Column="1" Grid.Row="7" />
         <Label Content="Адрес прописки" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="9" Height="25" Width="104"/>
         <TextBox x:Name="txt_Address" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Text="{Binding Adress}" Grid.Column="1" Grid.Row="9" />
-        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="10,11,0,287" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="660" Grid.Column="2" Grid.RowSpan="10" Grid.Row="2">
+        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="10,11,0,287" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="660" Grid.Column="2" Grid.RowSpan="10" Grid.Row="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="396" Width="660"/>

@@ -22,5 +22,15 @@ namespace Autoprokat.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-1P53LV5;Initial Catalog=AutoProkat;Integrated Security=True")]
+        public string AutoProkatConnectionString {
+            get {
+                return ((string)(this["AutoProkatConnectionString"]));
+            }
+        }
     }
 }

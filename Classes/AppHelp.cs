@@ -15,6 +15,6 @@ namespace Autoprokat.Classes
             public static string MiddleName { get; set; }
             public static string Position { get; set; }
 
-        
+            
     }
 }
