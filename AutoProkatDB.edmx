@@ -16,11 +16,11 @@
           <Property Name="Color" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_Transmission" Type="int" />
           <Property Name="Engine_Volume" Type="nvarchar" MaxLength="25" />
-          <Property Name="Deposit_Amount" Type="int" />
+          <Property Name="Deposit_Amount" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_Type" Type="int" />
           <Property Name="ID_Car" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="State_Number" Type="nvarchar" MaxLength="9" />
-          <Property Name="ID_Engine" Type="int" />
+          <Property Name="ID_Engines" Type="int" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
@@ -32,7 +32,7 @@
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
           <Property Name="NumberPassport" Type="nchar" MaxLength="4" />
           <Property Name="SeriaPassport" Type="nchar" MaxLength="6" />
-          <Property Name="Birthday" Type="date" />
+          <Property Name="Birthday" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Adress" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -131,7 +131,7 @@
               <PropertyRef Name="ID_Engine" />
             </Principal>
             <Dependent Role="Cars">
-              <PropertyRef Name="ID_Engine" />
+              <PropertyRef Name="ID_Engines" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -370,11 +370,11 @@
           <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ID_Transmission" Type="Int32" />
           <Property Name="Engine_Volume" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Deposit_Amount" Type="Int32" />
+          <Property Name="Deposit_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ID_Type" Type="Int32" />
           <Property Name="ID_Car" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="State_Number" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Engine" Type="Int32" />
+          <Property Name="ID_Engines" Type="Int32" />
           <NavigationProperty Name="TypeCars" Relationship="AutoProkatModel.FK_Cars_TypeCars" FromRole="Cars" ToRole="TypeCars" />
           <NavigationProperty Name="TypeEngineCars" Relationship="AutoProkatModel.FK_Cars_TypeEngineCars" FromRole="Cars" ToRole="TypeEngineCars" />
           <NavigationProperty Name="TypeTransmission" Relationship="AutoProkatModel.FK_Cars_TypeTransmission" FromRole="Cars" ToRole="TypeTransmission" />
@@ -390,7 +390,7 @@
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NumberPassport" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="SeriaPassport" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Birthday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Issued_Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Clients" FromRole="Clients" ToRole="Issued_Cars" />
@@ -499,7 +499,7 @@
               <PropertyRef Name="ID_Engine" />
             </Principal>
             <Dependent Role="Cars">
-              <PropertyRef Name="ID_Engine" />
+              <PropertyRef Name="ID_Engines" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -604,7 +604,7 @@
           <EntitySetMapping Name="Cars">
             <EntityTypeMapping TypeName="AutoProkatModel.Cars">
               <MappingFragment StoreEntitySet="Cars">
-                <ScalarProperty Name="ID_Engine" ColumnName="ID_Engine" />
+                <ScalarProperty Name="ID_Engines" ColumnName="ID_Engines" />
                 <ScalarProperty Name="State_Number" ColumnName="State_Number" />
                 <ScalarProperty Name="ID_Car" ColumnName="ID_Car" />
                 <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />

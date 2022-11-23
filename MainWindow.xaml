@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="650" Width="1100" MinHeight="800" MinWidth="1100">
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="344*"/>
             <ColumnDefinition Width="747*"/>

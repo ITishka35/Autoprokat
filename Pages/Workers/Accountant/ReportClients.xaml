@@ -9,7 +9,46 @@
       Title="ReportClients">
 
     <Grid>
-        <Button x:Name="btn_Report" Click="btn_Report_Click" Content="Button" HorizontalAlignment="Left" Margin="528,404,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="222*"/>
+            <ColumnDefinition Width="269*"/>
+            <ColumnDefinition Width="233*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="371*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btn_Report" Click="btn_Report_Click" Content="Вывести отчет" HorizontalAlignment="Center" Margin="0,17,0,0" VerticalAlignment="Top" Width="172" Grid.Row="2" Grid.Column="3"/>
+        <ListView x:Name="ReporClients" Margin="10,10,10,10" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Clients.LastName}"
+                                    Header="Фамилия клиента" Width="120"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Clients.FirstName}"
+                                    Header="Имя клиента" Width="130"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Clients.MiddleName}"
+                                    Header="Отчество клиента" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Clients.Birthday}"
+                                    Header="Дата рождения" Width="90"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Clients.NumberPassport}"
+                                    Header="Серия паспорта" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Clients.SeriaPassport}"
+                                    Header="Номер паспорта" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Cars.Marks}"
+                                    Header="Автомобиль" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Cars.Model}"
+                                    Header="Автомобиль" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Cars.Deposit_Amount}"
+                                    Header="Сумма залога" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
+        <Button x:Name="btn_load" Click="btn_load_Click" Content="Загрузить файл" HorizontalAlignment="Left" Margin="21,17,0,0" VerticalAlignment="Top" Width="174" Grid.Row="2" Grid.Column="1"/>
+        <!--<DocumentViewer x:Name="DocViewer" Margin="6,14,8,10" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1"/>-->
     </Grid>
 </Page>

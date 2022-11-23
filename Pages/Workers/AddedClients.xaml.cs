@@ -25,6 +25,8 @@ namespace Autoprokat.Pages.Workers
         public AddedClients()
         {
             InitializeComponent();
+            ListSpisok.ItemsSource = AppConnect.model.Clients.ToArray();
+            AppConnect.model = new CarsProkatEntities();
         }
 
         private void SaveAll_Click(object sender, RoutedEventArgs e)
@@ -37,7 +39,7 @@ namespace Autoprokat.Pages.Workers
                 NumberPassport = txt_NumberPassport.Text,
                 SeriaPassport = txt_SeriasPassport.Text,
                 Phone = txt_Phone.Text,
-                Birthday = DateTime.Parse(txt_Birthday.Text),
+                Birthday = dp_Birthday.SelectedDate.Value.ToString("dd-mm-yyyy"),
                 Adress = txt_Address.Text,
             };
             AppConnect.model.Clients.Add(clients);
@@ -79,8 +81,8 @@ namespace Autoprokat.Pages.Workers
         private void ListSpisok_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListBox listBox = (ListBox)sender;
-            Cars car = (Cars)listBox.Items[listBox.SelectedIndex];
-            ID = int.Parse(car.ID_Car.ToString());
+            Clients clients= (Clients)listBox.Items[listBox.SelectedIndex];
+            ID = int.Parse(clients.ID_Client.ToString());
         }
     }
 }

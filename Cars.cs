@@ -27,11 +27,11 @@ namespace Autoprokat
         public string Color { get; set; }
         public Nullable<int> ID_Transmission { get; set; }
         public string Engine_Volume { get; set; }
-        public Nullable<int> Deposit_Amount { get; set; }
+        public string Deposit_Amount { get; set; }
         public Nullable<int> ID_Type { get; set; }
         public int ID_Car { get; set; }
         public string State_Number { get; set; }
-        public Nullable<int> ID_Engine { get; set; }
+        public Nullable<int> ID_Engines { get; set; }
     
         public virtual TypeCars TypeCars { get; set; }
         public virtual TypeEngineCars TypeEngineCars { get; set; }

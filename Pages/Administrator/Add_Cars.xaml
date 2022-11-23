@@ -187,20 +187,15 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <StackPanel x:Name="StackEdit" Visibility="Visible" Orientation="Vertical" Grid.Row="3" Grid.Column="3" Margin="0,0,0,15" Grid.RowSpan="6">
+        <StackPanel x:Name="StackEdit" Visibility="Hidden" Orientation="Vertical" Grid.Row="3" Grid.Column="3" Margin="0,0,0,15" Grid.RowSpan="6">
             <Label x:Name="lbl_edittrans" Content="Трансмиссия" Margin ="10,0,0,6" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <ComboBox  DisplayMemberPath="Transmission" x:Name="cmb_EditTypeTransmission" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Margin="0,0,0,0" Grid.Column="3" Grid.Row="7" IsEditable="True" >
-                <ComboBoxItem >
-                    <TextBlock Text="МКПП"/>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <TextBlock Text="АКПП"/>
-                </ComboBoxItem>
+            <ComboBox   x:Name="cmb_EditTypeTransmission" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Margin="0,0,0,0" Grid.Column="3" Grid.Row="7" IsEditable="False" >
+
             </ComboBox>
             <Label x:Name="lbl_edittype" Content="Тип авто" Margin="10,3,0,5" Grid.Row="4" Grid.Column="3"/>
             <ComboBox x:Name="cmb_EditType" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Grid.Column="3" Grid.Row="3" Margin="0,0,0,0"   />
             <Label Content="Тип двигателя" x:Name="lbl_edittypeEngine" Width="180" Margin="10,0,0,0" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <ComboBox  x:Name="cmb_EditEngine" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Margin="0,0,0,0" Grid.Row="5" Grid.Column="3"  />
+            <ComboBox SelectionChanged="cmb_EditEngine_SelectionChanged"  x:Name="cmb_EditEngine" HorizontalAlignment="Center" Height="25" VerticalAlignment="Center" Width="200" Margin="0,0,0,0" Grid.Row="5" Grid.Column="3"  />
         </StackPanel>
     </Grid>
 

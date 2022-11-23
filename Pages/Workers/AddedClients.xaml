@@ -24,30 +24,30 @@
             <RowDefinition Height="320*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="86*"/>
-            <ColumnDefinition Width="149*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="283*"/>
+            <ColumnDefinition Width="657*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="0,0,0,3" HorizontalAlignment="Center" Width="344" Grid.Column="1" Grid.Row="1"/>
-        <Button Height="25" Width="100" Click="SaveAll_Click" Margin="217,15,27,8" Grid.Column="1" Grid.Row="10">Сохранить все</Button>
-        <Button Content="Назад" Click="BackPage" Margin="55,15,5,8" Grid.Row="10" Height="25"/>
+        <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="0,0,0,3" HorizontalAlignment="Left" Width="344" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Button Height="25" Width="100" Click="SaveAll_Click" Margin="150,0,0,0" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">Сохранить все</Button>
+        <Button Content="Назад" Click="BackPage" Grid.Row="10" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80"/>
         <Label Content="Фамилия" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="104" Grid.Row="2"/>
-        <TextBox Height="25" x:Name="txt_LastName" Margin="50,10,0,0" Text="{Binding LasrName}" HorizontalAlignment="Left" Width="250" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Height="25" x:Name="txt_LastName" Margin="50,10,0,0" Text="{Binding LasrName}" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
         <Label Content="Имя" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Height="25" Grid.Row="3" Width="104"/>
-        <TextBox x:Name="txt_FirstName" Margin="50,10,0,0" Text="{Binding FirstName}" HorizontalAlignment="Left" Width="250" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="txt_FirstName" Margin="50,10,0,0" Text="{Binding FirstName}" HorizontalAlignment="Left" Width="200" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25"/>
         <Label Content="Отчество" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Height="25" Width="104"/>
-        <TextBox x:Name="txt_MiddleName" Margin="50,10,0,0" TextWrapping="Wrap" Text="{Binding MiddleName}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Height="25" />
+        <TextBox x:Name="txt_MiddleName" Margin="50,10,0,0" TextWrapping="Wrap" Text="{Binding MiddleName}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="25" />
         <Label Content="Номер паспорта" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Height="25" Width="104"/>
-        <TextBox x:Name="txt_NumberPassport" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Text="{Binding NumberPassport}" Grid.Column="1" Grid.Row="5" />
+        <TextBox x:Name="txt_NumberPassport" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Text="{Binding NumberPassport}" Grid.Column="1" Grid.Row="5" />
         <Label Content="Серия паспорта" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Grid.Row="6" Width="104"/>
-        <TextBox Height="25" x:Name="txt_SeriasPassport" Margin="50,10,0,0" Text="{Binding SeriaPassport}" HorizontalAlignment="Left" Width="250" VerticalAlignment="Top" Grid.Column="1" Grid.Row="6"/>
+        <TextBox Height="25" x:Name="txt_SeriasPassport" Margin="50,10,0,0" Text="{Binding SeriaPassport}" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" Grid.Column="1" Grid.Row="6"/>
         <Label Content="Дата рождения" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Height="25" Grid.Row="8" Width="104"/>
-        <TextBox Height="25" x:Name="txt_Birthday" Margin="50,10,0,0" VerticalAlignment="Top" Text="{Binding Birthday}" HorizontalAlignment="Left" Width="250" Grid.Column="1" Grid.Row="8"/>
+        <DatePicker Height="25" x:Name="dp_Birthday" Margin="50,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Grid.Column="1" Grid.Row="8"/>
         <Label Content="Телефон" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" Height="25" Width="104"/>
-        <TextBox x:Name="txt_Phone" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Text="{Binding Phone}" Grid.Column="1" Grid.Row="7" />
+        <TextBox x:Name="txt_Phone" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Text="{Binding Phone}" Grid.Column="1" Grid.Row="7" />
         <Label Content="Адрес прописки" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="9" Height="25" Width="104"/>
-        <TextBox x:Name="txt_Address" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Text="{Binding Adress}" Grid.Column="1" Grid.Row="9" />
-        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="10,11,0,287" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="660" Grid.Column="2" Grid.RowSpan="10" Grid.Row="2">
+        <TextBox x:Name="txt_Address" HorizontalAlignment="Left" Height="25" Margin="50,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Text="{Binding Adress}" Grid.Column="1" Grid.Row="9" />
+        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="18,11,0,10" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="660" Grid.Column="2" Grid.RowSpan="9" Grid.Row="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="396" Width="660"/>
@@ -93,30 +93,29 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="10,11,10,287" Grid.ColumnSpan="2" Grid.RowSpan="10" Grid.Row="2">
-            <ListBox x:Name="RedList" Background="White"  Margin="10,0,0,10" Visibility="Visible">
+        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="10,11,108,287" Grid.ColumnSpan="2" Grid.RowSpan="10" Grid.Row="2">
+            <ListBox x:Name="RedList" Background="White"  Margin="10,0,10,10" Visibility="Visible" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Width="250" Orientation="Vertical">
-                                <Label Content="Марка" />
-                                <TextBox Width="200"  Margin="-45,0,0,0" Text="{Binding Path=Marks}" Height="20" ></TextBox>
-                                <Label >Модель</Label>
-                                <TextBox Width="200" Margin="-45,0,0,0" Height="20" Text="{Binding Path=Model}"></TextBox>
-                                <Label Content="Год выпуска"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Year_Release}" ></TextBox>
-                                <Label Content="Цвет"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Color}" ></TextBox>
-                                <Label Content="Трансмиссия"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Transmission}" ></TextBox>
-                                <Label Content="Объем двигателя"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Engine_Volume}" ></TextBox>
-                                <Label Content="Сумма залога"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Deposit_Amount}" ></TextBox>
-                                <Label Content="Тип авто"/>
-                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=TypeCars.Type}" ></TextBox>
-                                <Label Content="Госномер" x:Name="MiddleName" Height="25" Width="200" Margin="-50,0,0,0" />
-                                <TextBox x:Name="StateNumber" Width="200" Height="20"  Margin="-45,0,0,0" Text="{Binding Path=State_Number}"/>
+                                <Label Content="Фамилия" />
+                                <TextBox Width="200"  Margin="-45,0,0,0" Text="{Binding Path=LastName}" Height="20" ></TextBox>
+                                <Label Content="Имя" ></Label>
+                                <TextBox Width="200" Margin="-45,0,0,0" Height="20" Text="{Binding Path=FirstName}"></TextBox>
+                                <Label Content="Отчество"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=MiddleName}" ></TextBox>
+                                <Label Content="Номер паспорта"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=NumberPassport}" ></TextBox>
+                                <Label Content="Серия паспорта"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=SeriaPassport}" ></TextBox>
+                                <Label Content="Телефон"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Phone}" ></TextBox>
+                                <Label Content="Дата рождения"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Birthday}" ></TextBox>
+                                <Label Content="Адрес проживания"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Adress}" ></TextBox>
+
                                 <Button Width="200" Margin="-45,10,0,0" Height="25" Content="Сохранить"  Click="save_Click" Name="save"/>
 
                             </StackPanel>

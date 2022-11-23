@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace Autoprokat.Pages.Workers
             ListSpisok.ItemsSource = AppConnect.model.Cars.ToArray();
             DataGrid1.ItemsSource = AppConnect.model.Cars.ToArray();
 
+
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -55,6 +57,8 @@ namespace Autoprokat.Pages.Workers
         {
             RedList.ItemsSource = ListSpisok.SelectedItems;
             Red.Visibility = Visibility.Hidden;
+            ICollectionView view = CollectionViewSource.GetDefaultView(AppConnect.model.Cars);
+            view.Refresh();
         }
 
         private void AddPicture_Click(object sender, RoutedEventArgs e)

@@ -26,7 +26,7 @@ namespace Autoprokat
         public string MiddleName { get; set; }
         public string NumberPassport { get; set; }
         public string SeriaPassport { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
+        public string Birthday { get; set; }
         public string Phone { get; set; }
         public string Adress { get; set; }
     

@@ -26,8 +26,8 @@ namespace Autoprokat.Pages.Administrator
     public partial class Add_Cars : Page
     {
         private int ID;
-        
-        
+
+
         public Add_Cars()
         {
             InitializeComponent();
@@ -42,45 +42,34 @@ namespace Autoprokat.Pages.Administrator
             cmb_TypeAuto.SelectedValuePath = "ID_Type";
             cmb_TypeAuto.DisplayMemberPath = "Type";
             cmb_TypeAuto.ItemsSource = AppConnect.model.TypeCars.ToArray();
-            bindcmb();
-            var rezult = AppConnect.model.Cars.ToArray().Join(AppConnect.model.Cars.ToArray(),
-                P => P.ID_Car,
-                t => t.ID_Type,
-                (P, t) => new { ID = P.ID_Type,  = P.status, LastName = t.LastName });
-            listviewFines.ItemsSource = rezult;
 
+            cmb_EditEngine.SelectedValue = "ID_Engine";
+            cmb_EditEngine.DisplayMemberPath = "Engine";
+            //int ID_Engines = Convert.ToInt32(cmb_EditEngine.SelectedValue);
+            cmb_EditEngine.ItemsSource = AppConnect.model.TypeEngineCars.ToList();
+
+            cmb_EditType.SelectedValue = "ID_Type";
+            cmb_EditType.DisplayMemberPath = "Type";
+            //int ID_Type = Convert.ToInt32(cmb_EditType.SelectedValue);
+            cmb_EditType.ItemsSource = AppConnect.model.TypeCars.ToList();
+
+            cmb_EditTypeTransmission.SelectedValue = "ID_Transmission";
+            cmb_EditTypeTransmission.DisplayMemberPath = "Transmission";
+            //int ID_Transmission = Convert.ToInt32(cmb_EditTypeTransmission.SelectedValue);
+            cmb_EditTypeTransmission.ItemsSource = AppConnect.model.TypeTransmission.ToList();
+
+            //var TypeEngineCars = AppConnect.model.TypeEngineCars.Where(x => x.ID_Engine == ID_Engines).FirstOrDefault();
         }
-        public  List<TypeCars>  types{ get; set; }
-
-        private void bindcmb()
-        {
-            //throw new NotImplementedException();
-            CarsProkatEntities carsProkatEntities = new CarsProkatEntities();
-            var item = carsProkatEntities.TypeCars.ToList();
-            types = item;
-            DataContext = types;
-        }
-
-        
-
-
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            TypeTransmission typeTransmission = new TypeTransmission();
-            {
-                
-            };
-            //RedList.ItemsSource = ListSpisok.SelectedItems;
-            //cmb_EditEngine.SelectedValuePath = "ID_Engine";
-            //cmb_EditEngine.DisplayMemberPath = "Engine";
-            //cmb_EditEngine.ItemsSource = AppConnect.model.TypeEngineCars.ToArray();
-            //cmb_EditType.SelectedValuePath = "ID_Engine";
-            //cmb_EditType.DisplayMemberPath = "Engine";
-            //cmb_EditType.ItemsSource = AppConnect.model.TypeCars.ToArray();
-            //cmb_EditTypeTransmission.SelectedValuePath = "ID_Tranmission";
-            //cmb_EditTypeTransmission.DisplayMemberPath = "Transmission";
-            //cmb_EditTypeTransmission.ItemsSource = AppConnect.model.TypeTransmission.ToArray();
+            var item = ListSpisok.SelectedItem as Cars;
+            item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
+            item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
+            item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
+
+
+            RedList.ItemsSource = ListSpisok.SelectedItems;
             cmb_EditEngine.Visibility = Visibility.Visible;
             cmb_EditTypeTransmission.Visibility = Visibility.Visible;
             cmb_EditType.Visibility = Visibility.Visible;
@@ -116,10 +105,10 @@ namespace Autoprokat.Pages.Administrator
                 Color = txb_Color.Text,
                 ID_Transmission = AppConnect.model.TypeTransmission.Where(p => p.ID_Transmission == cmb_TypeTransmission.SelectedIndex + 1).Select(p => p.ID_Transmission).FirstOrDefault(),
                 Engine_Volume = txb_Eng_Volume.Text,
-                Deposit_Amount = int.Parse(txb_Amount_Deposit.Text),
+                Deposit_Amount = txb_Amount_Deposit.Text,
                 State_Number = txb_State_Number.Text,
                 ID_Type = AppConnect.model.TypeCars.Where(p => p.ID_Type == cmb_TypeAuto.SelectedIndex + 1).Select(p => p.ID_Type).FirstOrDefault(),
-                ID_Engine = AppConnect.model.TypeEngineCars.Where(p => p.ID_Engine == cmb_Engine.SelectedIndex).Select(p => p.ID_Engine).FirstOrDefault()
+                ID_Engines = AppConnect.model.TypeEngineCars.Where(p => p.ID_Engine == cmb_Engine.SelectedIndex).Select(p => p.ID_Engine).FirstOrDefault()
             };
 
             AppConnect.model.Cars.Add(cars);
@@ -194,7 +183,7 @@ namespace Autoprokat.Pages.Administrator
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-
+            
             RedList.ItemsSource = ListSpisok.SelectedItems;
             Red.Visibility = Visibility.Hidden;
             StackEdit.Visibility = Visibility.Hidden;
@@ -205,6 +194,11 @@ namespace Autoprokat.Pages.Administrator
             ListBox listBox = (ListBox)sender;
             Cars car = (Cars)listBox.Items[listBox.SelectedIndex];
             ID = int.Parse(car.ID_Car.ToString());
+        }
+
+        private void cmb_EditEngine_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
