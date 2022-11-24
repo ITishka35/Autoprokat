@@ -27,24 +27,21 @@
             <ListView x:Name="ReporClients" Margin="10,10,10,10" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Clients.LastName}"
-                                    Header="Фамилия клиента" Width="120"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Clients.FirstName}"
-                                    Header="Имя клиента" Width="130"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Clients.MiddleName}"
-                                    Header="Отчество клиента" Width="110"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Clients.Birthday}"
-                                    Header="Дата рождения" Width="90"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Clients.NumberPassport}"
-                                    Header="Серия паспорта" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Clients.SeriaPassport}"
-                                    Header="Номер паспорта" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Color}"
+                                    Header="Цвет автомобиля" Width="80"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Marks}"
                                     Header="Автомобиль" Width="80"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Model}"
-                                    Header="Автомобиль" Width="80"/>
+                                    Header="Модель" Width="80"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Deposit_Amount}"
                                     Header="Сумма залога" Width="80"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Date_Issue}"
+                                    Header="Дата выдачи" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Date_Return}"
+                                    Header="Дата возврата" Width="130"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Amount_Payable}"
+                                    Header="Сумма оплаты" Width="110"/>
+
                     </GridView>
                 </ListView.View>
             </ListView>

@@ -30,7 +30,7 @@ namespace Autoprokat.Pages.Workers.Accountant
 
         private void btn_load_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.Frames.Navigate(new Accountant.AccountantMenu());
         }
 
         private void btn_Report_Click(object sender, RoutedEventArgs e)
@@ -61,18 +61,11 @@ namespace Autoprokat.Pages.Workers.Accountant
                 foreach (Issued_Cars item in list)
                 //for (j = 0; j < list.Count; j++)
                 {
-                    ws.Cells[row, column].Value = list[i].Clients.LastName;
-                    ws.Cells[row, column + 1].Value = list[i].Clients.FirstName;
-                    ws.Cells[row, column + 2].Value = list[i].Clients.MiddleName;
-                    ws.Cells[row, column + 3].Value = list[i].Clients.Phone;
-                    ws.Cells[row, column + 4].Value = list[i].Clients.SeriaPassport;
-                    ws.Cells[row, column + 5].Value = list[i].Clients.NumberPassport;
-                    ws.Cells[row, column + 6].Value = list[i].Clients.Birthday;
-                    ws.Cells[row, column + 7].Value = list[i].Clients.Phone;
-                    ws.Cells[row, column + 8].Value = list[i].Clients.Adress;
-                    ws.Cells[row, column + 9].Value = list[i].Cars.Marks;
-                    ws.Cells[row, column + 10].Value = list[i].Cars.Model;
-                    ws.Cells[row, column + 11].Value = list[i].Cars.Deposit_Amount;
+                    ws.Cells[row, column].Value = list[i].Cars.Color;
+                    ws.Cells[row, column + 1].Value = list[i].Cars.Marks;
+                    ws.Cells[row, column + 2].Value = list[i].Cars.Model;
+                    ws.Cells[row, column + 3].Value = list[i].Date_Issue;
+                    ws.Cells[row, column + 4].Value = list[i].Cars.Deposit_Amount;
                     row++;
                     i++;
                 }
