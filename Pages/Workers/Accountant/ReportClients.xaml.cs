@@ -78,63 +78,10 @@ namespace Autoprokat.Pages.Workers.Accountant
                 }
             }
 
-            //for (int i = 0; i < list.Count; i++)
-            //{
-            //    ws.Range["A1"].Value = list[i].Clients.LastName;
-            //    ws.Range["B1"].Value = list[i].Clients.FirstName;
-            //    ws.Range["C1"].Value = list[i].Clients.MiddleName;
-            //    ws.Range["G1"].Value = list[i].Clients.Phone;
-            //}
-            //ws.Range["A4"].Value = Classes.HelpClassClients.FirstName;
-            //ws.Range["A5"].Value = Classes.HelpClassClients.MiddleName;
-            //ws.Range["B6"].Value = "Tommorow's date is: =>";
-            //ws.Range["C6"].FormulaLocal = "= A5 + 1";
-            //ws.Range["A7"].FormulaLocal = "=SUM(D1:D10)";
-            //for (int i = 1; i <= 10; i++)
-            //    ws.Range["D" + i].Value = i * 2;
-
-            //workBook.SaveAs($"{Environment.CurrentDirectory}\\TEST.xlsx");
+           
             PrintDialog printDialog = new PrintDialog();
             printDialog.PrintVisual(ReporClients, "");
-            //Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
-            //app.Visible = true;
-            //app.WindowState = XlWindowState.xlMaximized;
-
-            //const string template3 = "StraxLifeShabl.xls";
-            //Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-            //wb = application.Workbooks.Open(System.IO.Path.Combine(Environment.CurrentDirectory, template3));
-
-            //Worksheet ws = wb.Worksheets[1];
-            //DateTime currentDate = DateTime.Now;
-
-            //ws.Range["A1:A3"].Value = Classes.HelpClassClients.LasName;
-            //ws.Range["A4"].Value = Classes.HelpClassClients.FirstName;
-            //ws.Range["A5"].Value = Classes.HelpClassClients.MiddleName;
-            //ws.Range["B6"].Value = "Tommorow's date is: =>";
-            //ws.Range["C6"].FormulaLocal = "= A5 + 1";
-            //ws.Range["A7"].FormulaLocal = "=SUM(D1:D10)";
-            //for (int i = 1; i <= 10; i++)
-            //    ws.Range["D" + i].Value = i * 2;
-
-            //wb.SaveAs("C:\\Maria & Vlad\\repos\\TEST.xlsx");
-            ////PrintDialog printDialog = new PrintDialog();
-            ////printDialog.PrintVisual(ReportClients, "");
-            //if (this.workbook == null)
-            //    return;
-
-            //PrintDialog printDialog = new PrintDialog() { UserPageRangeEnabled = true };
-            //if (printDialog.ShowDialog() == true)
-            //{
-            //    PrintOptions printOptions = new PrintOptions(printDialog.PrintTicket.GetXmlStream())
-            //    {
-            //        SelectionType = SelectionType.EntireFile
-            //    };
-
-            //    printOptions.FromPage = printDialog.PageRange.PageFrom - 1;
-            //    printOptions.ToPage = printDialog.PageRange.PageTo == 0 ? int.MaxValue : printDialog.PageRange.PageTo - 1;
-
-            //    this.workbook.Print(printDialog.PrintQueue.FullName, printOptions);
-            //}
+          
 
         }
 
