@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Button  Content="Ведение справочника сотрудников"  HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="24" Width="360" Click="AddWorkers_Click" Grid.Row="2" Grid.Column="1"/>
         <Button  Content="Ведение справочника автомобилей" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="24" Width="360" Click="AddCars_Click" Grid.Row="1" Grid.Column="1"/>
-        <Button  Content="Назад"   HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="24" Width="360" Click="Button_Click_1" Grid.Row="3" Grid.Column="1"   />
+        <Button  Content="Назад"   HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="24" Width="360" Click="OnBack_Click" Grid.Row="3" Grid.Column="1"   />
 
     </Grid>
 </Page>

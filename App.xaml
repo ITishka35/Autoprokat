@@ -12,10 +12,37 @@
 
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ff7b5a"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Application.Resources>
 
