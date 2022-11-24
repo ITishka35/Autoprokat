@@ -1,0 +1,128 @@
+﻿<Page x:Class="Autoprokat.Pages.Workers.AddedClients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Autoprokat.Pages.Workers"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddedClients" Height="650" Width="1100" MinHeight="800" MinWidth="1100">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="320*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="283*"/>
+            <ColumnDefinition Width="657*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="0,0,0,3" HorizontalAlignment="Left" Width="344" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Button Height="25" Width="100" Click="SaveAll_Click" Margin="150,0,0,0" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">Сохранить все</Button>
+        <Button Content="Назад" Click="BackPage" Grid.Row="10" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80"/>
+        <Label Content="Фамилия" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="104" Grid.Row="2"/>
+        <TextBox Height="25" x:Name="txt_LastName" Margin="50,10,0,0" Text="{Binding LasrName}" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
+        <Label Content="Имя" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Height="25" Grid.Row="3" Width="104"/>
+        <TextBox x:Name="txt_FirstName" Margin="50,10,0,0" Text="{Binding FirstName}" HorizontalAlignment="Left" Width="200" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Отчество" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Height="25" Width="104"/>
+        <TextBox x:Name="txt_MiddleName" Margin="50,10,0,0" TextWrapping="Wrap" Text="{Binding MiddleName}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="25" />
+        <Label Content="Номер паспорта" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Height="25" Width="104"/>
+        <TextBox x:Name="txt_NumberPassport" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Text="{Binding NumberPassport}" Grid.Column="1" Grid.Row="5" />
+        <Label Content="Серия паспорта" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Grid.Row="6" Width="104"/>
+        <TextBox Height="25" x:Name="txt_SeriasPassport" Margin="50,10,0,0" Text="{Binding SeriaPassport}" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" Grid.Column="1" Grid.Row="6"/>
+        <Label Content="Дата рождения" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-1.79,-1.679" Height="25" Grid.Row="8" Width="104"/>
+        <DatePicker Height="25" x:Name="dp_Birthday" Margin="50,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Grid.Column="1" Grid.Row="8"/>
+        <Label Content="Телефон" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" Height="25" Width="104"/>
+        <TextBox x:Name="txt_Phone" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Text="{Binding Phone}" Grid.Column="1" Grid.Row="7" />
+        <Label Content="Адрес прописки" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="9" Height="25" Width="104"/>
+        <TextBox x:Name="txt_Address" HorizontalAlignment="Left" Height="25" Margin="50,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Text="{Binding Adress}" Grid.Column="1" Grid.Row="9" />
+        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="18,11,0,10" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="660" Grid.Column="2" Grid.RowSpan="9" Grid.Row="2">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" Height="396" Width="660"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="377" Width="618">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="229*"/>
+                            <ColumnDefinition Width="163*"/>
+                            <ColumnDefinition Width="160*"/>
+                            <ColumnDefinition Width="160*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" MinHeight="3"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="ФИО" FontSize="20" Grid.Row="1" Margin="0,0,39,49" Grid.RowSpan="2"/>
+                        <Label Content="Номер паспорта" FontSize="20" Grid.Row="2" Margin="0,6,39,6"/>
+                        <Label Content="Серия паспорта" FontSize="20" Grid.Row="3" Margin="0,6,39,6"/>
+                        <Label Content="Телефон" FontSize="20" Grid.Row="4" Margin="0,6,39,6"/>
+                        <Label Content="Дата рождения" FontSize="20" Grid.Row="5" Margin="0,6,39,6"/>
+                        <Label Content="Адрес проживания" FontSize="20" Grid.Row="6" Margin="0,6,10,6"/>
+                        <TextBlock Text="{Binding LastName}" TextAlignment="Center" TextWrapping="Wrap" FontSize="20" Grid.Row="1" Grid.Column="1" Margin="11,3,12,4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="40"/>
+                        <TextBlock Text="{Binding FirstName}" TextAlignment="Center" TextWrapping="Wrap" FontSize="20" Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Width="150" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding MiddleName }" FontSize="20" Grid.Row="1" Grid.Column="3" Margin="0,0,0,0" Width="130" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40"/>
+                        <TextBlock Text="{Binding NumberPassport }" Grid.Row="2" FontSize="20" Grid.Column="1" Grid.ColumnSpan="2" Margin="28,10,18,10"/>
+                        <TextBlock Text="{Binding SeriaPassport}" TextAlignment="Left" TextWrapping="Wrap" FontSize="20" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="28,10,18,10"/>
+                        <TextBlock Text="{Binding Phone}" TextAlignment="Left" TextWrapping="Wrap" FontSize="20" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1" Margin="28,10,18,10"/>
+                        <TextBlock Text="{Binding Birthday }" FontSize="20" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Margin="28,10,18,10"/>
+                        <TextBlock Text="{Binding Address }" Grid.Row="6" FontSize="20" Grid.ColumnSpan="2" Grid.Column="1" Margin="28,10,18,10"/>
+                        <Button x:Name="Edit" Click="Edit_Click" Content="Редактировать " Grid.Row="7" Margin="46,12,47,12" Grid.ColumnSpan="1" Width="120" />
+                        <Button x:Name="Del" Click="Del_Click" Content="Удалить" Grid.Row="7" Grid.Column="1" Margin="16,12,16,12" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="10,11,108,287" Grid.ColumnSpan="2" Grid.RowSpan="10" Grid.Row="2">
+            <ListBox x:Name="RedList" Background="White"  Margin="10,0,10,10" Visibility="Visible" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Width="250" Orientation="Vertical">
+                                <Label Content="Фамилия" />
+                                <TextBox Width="200"  Margin="-45,0,0,0" Text="{Binding Path=LastName}" Height="20" ></TextBox>
+                                <Label Content="Имя" ></Label>
+                                <TextBox Width="200" Margin="-45,0,0,0" Height="20" Text="{Binding Path=FirstName}"></TextBox>
+                                <Label Content="Отчество"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=MiddleName}" ></TextBox>
+                                <Label Content="Номер паспорта"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=NumberPassport}" ></TextBox>
+                                <Label Content="Серия паспорта"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=SeriaPassport}" ></TextBox>
+                                <Label Content="Телефон"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Phone}" ></TextBox>
+                                <Label Content="Дата рождения"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Birthday}" ></TextBox>
+                                <Label Content="Адрес проживания"/>
+                                <TextBox Width="200" Margin="-45,0,0,0" Text="{Binding Path=Adress}" ></TextBox>
+
+                                <Button Width="200" Margin="-45,10,0,0" Height="25" Content="Сохранить"  Click="save_Click" Name="save"/>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Page>
