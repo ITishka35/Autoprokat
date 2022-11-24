@@ -76,16 +76,13 @@ namespace Autoprokat.Pages.Workers
 
 
             const string template3 = "Contracts.xlsx";
-            //Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
             string path = System.IO.Path.Combine(@"C:\Users\Maria & Vlad\source\repos\Autoprokat\bin\Debug\", template3);
-            //wb = application.Workbooks.Open(path);
             workBook = app.Workbooks.Open(path);
 
             Worksheet ws = workBook.Worksheets[1];
             DateTime currentDate = DateTime.Now;
 
             int count = 0;
-            //var sheets = workBook.Worksheets.Add("Clients");
             int i;
             int j = 0;
 
@@ -117,7 +114,7 @@ namespace Autoprokat.Pages.Workers
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.Frames.Navigate(new Manager());
+            AppFrame.Frames.Navigate(new AddedClients());
         }
 
         private void rez_Click(object sender, RoutedEventArgs e)

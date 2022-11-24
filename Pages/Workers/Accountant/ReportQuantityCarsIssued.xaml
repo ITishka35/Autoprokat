@@ -28,19 +28,15 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Color}"
-                                    Header="Цвет автомобиля" Width="80"/>
+                                    Header="Цвет автомобиля" Width="150"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Marks}"
-                                    Header="Автомобиль" Width="80"/>
+                                    Header="Автомобиль" Width="150"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Model}"
-                                    Header="Модель" Width="80"/>
+                                    Header="Модель" Width="120"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Date_Issue}"
+                                    Header="Дата выдачи" Width="150"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Deposit_Amount}"
                                     Header="Сумма залога" Width="80"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Date_Issue}"
-                                    Header="Дата выдачи" Width="120"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Date_Return}"
-                                    Header="Дата возврата" Width="130"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Amount_Payable}"
-                                    Header="Сумма оплаты" Width="110"/>
 
                     </GridView>
                 </ListView.View>

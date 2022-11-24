@@ -45,6 +45,7 @@ namespace Autoprokat.Pages.Workers
             AppConnect.model.Clients.Add(clients);
             AppConnect.model.SaveChanges();
             MessageBox.Show("Запись была добавлена!");
+            AppFrame.Frames.Navigate(new Contract());
         }
 
         private void BackPage(object sender, RoutedEventArgs e)

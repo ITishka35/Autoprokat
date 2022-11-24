@@ -40,7 +40,7 @@
         <TextBox x:Name="MiddleNameTXT" HorizontalAlignment="Left" Height="22" Margin="15,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="263" Text="{Binding Path=MiddleName}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" />
         <Label Content="Должность" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Center" Grid.Row="4" Height="26" Width="71"/>
         <TextBox x:Name="PositionTXT" HorizontalAlignment="Left" Height="22" Margin="15,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="263" Text="{Binding Path=Position}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" />
-        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="8,10,0,61" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="326" Grid.Column="5" Grid.RowSpan="6" Grid.Row="1">
+        <ListView x:Name="ListSpisok" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Disabled" HorizontalContentAlignment="Center" Margin="8,10,0,61" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Width="326" Grid.Column="5" Grid.RowSpan="6" Grid.Row="1">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="395" Width="315"/>

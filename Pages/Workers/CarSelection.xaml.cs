@@ -127,5 +127,11 @@ namespace Autoprokat.Pages.Workers
                 }
             }
         }
+
+        private void Bron_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new AddedClients());
+
+        }
     }
 }

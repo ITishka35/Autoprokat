@@ -29,7 +29,7 @@
             <ColumnDefinition Width="657*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Добавление клиента в базу данных" FontSize="20" Margin="0,0,0,3" HorizontalAlignment="Left" Width="344" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <Button Height="25" Width="100" Click="SaveAll_Click" Margin="150,0,0,0" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">Сохранить все</Button>
+        <Button Height="25" Width="100" Click="SaveAll_Click" Margin="166,0,0,11" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Bottom">Сохранить все</Button>
         <Button Content="Назад" Click="BackPage" Grid.Row="10" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80"/>
         <Label Content="Фамилия" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="104" Grid.Row="2"/>
         <TextBox Height="25" x:Name="txt_LastName" Margin="50,10,0,0" Text="{Binding LasrName}" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
@@ -47,7 +47,7 @@
         <TextBox x:Name="txt_Phone" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Text="{Binding Phone}" Grid.Column="1" Grid.Row="7" />
         <Label Content="Адрес прописки" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="9" Height="25" Width="104"/>
         <TextBox x:Name="txt_Address" HorizontalAlignment="Left" Height="25" Margin="50,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Text="{Binding Adress}" Grid.Column="1" Grid.Row="9" />
-        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="18,11,0,10" d:ItemsSource="{d:SampleData ItemCount=2}" HorizontalAlignment="Left" Width="660" Grid.Column="2" Grid.RowSpan="9" Grid.Row="2">
+        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="18,11,0,302" d:ItemsSource="{d:SampleData ItemCount=4}" HorizontalAlignment="Left" Width="629" Grid.Column="2" Grid.RowSpan="10" Grid.Row="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="396" Width="660"/>

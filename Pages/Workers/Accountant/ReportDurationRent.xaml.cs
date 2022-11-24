@@ -40,9 +40,9 @@ namespace Autoprokat.Pages.Workers.Accountant
             app.WindowState = XlWindowState.xlMaximized;
 
 
-            const string template3 = "ReportsClients.xlsx";
+            const string template3 = "ReportsTimeCars.xlsx";
             //Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-            string path = Path.Combine(@"C:\Users\Maria & Vlad\source\repos\Autoprokat\bin\Debug\", template3);
+            string path = Path.Combine(Environment.CurrentDirectory, template3);
             //wb = application.Workbooks.Open(path);
             workBook = app.Workbooks.Open(path);
 
@@ -53,7 +53,7 @@ namespace Autoprokat.Pages.Workers.Accountant
             //var sheets = workBook.Worksheets.Add("Clients");
             int i;
             int j = 0;
-            var row = 7;
+            var row = 6;
             var column = 1;
             for (i = 0; i < list.Count; i++)
             {
@@ -66,6 +66,8 @@ namespace Autoprokat.Pages.Workers.Accountant
                     ws.Cells[row, column + 2].Value = list[i].Cars.Model;
                     ws.Cells[row, column + 3].Value = list[i].Date_Issue;
                     ws.Cells[row, column + 4].Value = list[i].Cars.Deposit_Amount;
+                    ws.Cells[row, column + 5].Value = list[i].Date_Return;
+                    ws.Cells[row, column + 6].Value = list[i].Quatity_Days;
                     row++;
                     i++;
                 }

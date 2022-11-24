@@ -32,14 +32,14 @@
                                     Header="Автомобиль" Width="80"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Model}"
                                     Header="Модель" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Date_Issue}"
+                                    Header="Дата выдачи" Width="120"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Deposit_Amount}"
                                     Header="Сумма залога" Width="80"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Date_Issue}"
-                                    Header="Дата выдачи" Width="120"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Date_Return}"
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Date_Return}"
                                     Header="Дата возврата" Width="130"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Issue_Cars.Amount_Payable}"
-                                    Header="Сумма оплаты" Width="110"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Quatity_Days}"
+                                    Header="Количество дней" Width="110"/>
                 </GridView>
             </ListView.View>
         </ListView>
