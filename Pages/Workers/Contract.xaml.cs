@@ -40,7 +40,6 @@ namespace Autoprokat.Pages.Workers
             cm_Clients.ItemsSource = AppConnect.model.Clients.Select(p => p.FirstName + " " + p.LastName + " " + p.MiddleName).ToArray();
             cmb_Auto.ItemsSource = AppConnect.model.Cars.Select(p => p.Marks + " " + p.Model).ToArray();
             cm_Work.ItemsSource = AppConnect.model.WorkersAutoProkat.Select(p => p.FirstName + " " + p.LastName + " " + p.MiddleName).ToArray();
-            //AppConnect.model.Cars.Where(x => x.Marks.Contains(txtbMarks.Text)).Where(x => x.TypeCars.Type == cmbFilter.Text).ToArray()
 
 
 

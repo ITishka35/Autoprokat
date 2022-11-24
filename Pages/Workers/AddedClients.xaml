@@ -50,12 +50,12 @@
         <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="18,11,0,302" d:ItemsSource="{d:SampleData ItemCount=4}" HorizontalAlignment="Left" Width="629" Grid.Column="2" Grid.RowSpan="10" Grid.Row="2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" Height="396" Width="660"/>
+                    <WrapPanel Orientation="Vertical" Height="696" Width="606"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="377" Width="618">
+                    <Grid  Height="377" Width="618">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="229*"/>
                             <ColumnDefinition Width="163*"/>

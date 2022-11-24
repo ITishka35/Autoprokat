@@ -28,7 +28,6 @@ namespace Autoprokat.Pages.Workers
         {
             InitializeComponent();
             ListSpisok.ItemsSource = AppConnect.model.Cars.ToArray();
-            DataGrid1.ItemsSource = AppConnect.model.Cars.ToArray();
 
 
         }

@@ -10,8 +10,8 @@
 
     <Grid>
         <Label Content="Заключение договора" FontSize="20" Margin="0,10,0,0" HorizontalAlignment="Center" Width="452" Height="36" VerticalAlignment="Top"/>
-        <Button Content="Загрузить" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="112" Click="load_Click"/>
-        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="137,420,0,0" VerticalAlignment="Top" Width="112" Click="Save_Click"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="112" Click="load_Click"/>
+        <Button Content="Печать" HorizontalAlignment="Left" Margin="137,420,0,0" VerticalAlignment="Top" Width="112" Click="Save_Click"/>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="662,420,0,0" VerticalAlignment="Top" Width="112" Click="Back_Click"/>
         <Label Content="Дата аренды" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="330,52,0,0"/>
         <DatePicker Height="25" x:Name="tx_D_I" Margin="512,51,0,0"  HorizontalAlignment="Left" Width="200" VerticalAlignment="Top"/>

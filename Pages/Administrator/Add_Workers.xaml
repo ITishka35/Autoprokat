@@ -74,8 +74,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="23,2,0,0" HorizontalAlignment="Left" Width="405" Height="245" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="6">
-            <ListBox x:Name="RedList"   Margin="10,10,0,10">
+        <Grid x:Name="Red" Visibility="Visible" Background="White" Margin="23,2,0,0" HorizontalAlignment="Left" Width="405" Height="245" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="6">
+            <ListBox x:Name="RedList" Visibility="Visible" Margin="10,10,0,10" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

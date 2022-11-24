@@ -3,6 +3,7 @@ using Autoprokat.Classes;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -191,8 +192,8 @@ namespace Autoprokat.Pages.Administrator
             item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
             item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
             item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
-
             AppConnect.model.SaveChanges();
+
         }
 
         private void ListSpisok_SelectionChanged(object sender, SelectionChangedEventArgs e)
