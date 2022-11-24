@@ -23,7 +23,7 @@
                 <RowDefinition Height="42*"/>
                 <RowDefinition Height="23*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btn_Report" Click="btn_Report_Click" Content="Вывести отчет" HorizontalAlignment="Center" Margin="0,17,0,0" VerticalAlignment="Top" Width="172" Grid.Row="2" Grid.Column="3"/>
+            <Button x:Name="btn_Report" Click="btn_Report_Click" Content="Вывести отчет" HorizontalAlignment="Center" Margin="0,17,0,0" VerticalAlignment="Top" Width="172" Grid.Row="2" Grid.Column="3" Background="#FF27BFDC"/>
             <ListView x:Name="ReporClients" Margin="10,10,10,10" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
                 <ListView.View>
                     <GridView>
@@ -46,7 +46,7 @@
                 </ListView.View>
             </ListView>
 
-            <Button x:Name="btn_load" Click="btn_load_Click" Content="Назад" HorizontalAlignment="Left" Margin="21,17,0,0" VerticalAlignment="Top" Width="174" Grid.Row="2" Grid.Column="1"/>
+            <Button x:Name="btn_load" Click="btn_load_Click" Content="Назад" HorizontalAlignment="Left" Margin="21,17,0,0" VerticalAlignment="Top" Width="174" Grid.Row="2" Grid.Column="1" Background="#FF27BFDC" Foreground="Black"/>
             <!--<DocumentViewer x:Name="DocViewer" Margin="6,14,8,10" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1"/>-->
         </Grid>
     </Grid>
