@@ -63,10 +63,10 @@ namespace Autoprokat.Pages.Administrator
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            var item = ListSpisok.SelectedItem as Cars;
-            item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
-            item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
-            item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
+            //var item = ListSpisok.SelectedItem as Cars;
+            //item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
+            //item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
+            //item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
 
 
             RedList.ItemsSource = ListSpisok.SelectedItems;
@@ -187,6 +187,12 @@ namespace Autoprokat.Pages.Administrator
             RedList.ItemsSource = ListSpisok.SelectedItems;
             Red.Visibility = Visibility.Hidden;
             StackEdit.Visibility = Visibility.Hidden;
+            var item = ListSpisok.SelectedItem as Cars;
+            item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
+            item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
+            item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
+
+            AppConnect.model.SaveChanges();
         }
 
         private void ListSpisok_SelectionChanged(object sender, SelectionChangedEventArgs e)
