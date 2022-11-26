@@ -23,16 +23,19 @@ namespace Autoprokat
         public string Marks { get; set; }
         public string MainImagePath { get; set; }
         public string Model { get; set; }
-        public Nullable<System.DateTime> Year_Release { get; set; }
+        public string Year_Release { get; set; }
         public string Color { get; set; }
-        public string Transmission { get; set; }
+        public Nullable<int> ID_Transmission { get; set; }
         public string Engine_Volume { get; set; }
-        public Nullable<int> Deposit_Amount { get; set; }
-        public Nullable<int> Type { get; set; }
+        public string Deposit_Amount { get; set; }
+        public Nullable<int> ID_Type { get; set; }
         public int ID_Car { get; set; }
         public string State_Number { get; set; }
+        public Nullable<int> ID_Engines { get; set; }
     
-        public virtual Type_Cars Type_Cars { get; set; }
+        public virtual TypeCars TypeCars { get; set; }
+        public virtual TypeEngineCars TypeEngineCars { get; set; }
+        public virtual TypeTransmission TypeTransmission { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Issued_Cars> Issued_Cars { get; set; }
     }

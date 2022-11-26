@@ -30,5 +30,21 @@ namespace Autoprokat.Pages.Workers.Accountant
         {
             AppFrame.Frames.Navigate(new Autoriz());
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new ReportClients());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new ReportQuantityCarsIssued());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new ReportDurationRent());
+
+        }
     }
 }

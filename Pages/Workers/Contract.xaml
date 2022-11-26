@@ -1,0 +1,36 @@
+﻿<Page x:Class="Autoprokat.Pages.Workers.Contract"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Autoprokat.Pages.Workers"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Contract">
+
+    <Grid>
+        <Label Content="Заключение договора" FontSize="20" Margin="0,10,0,0" HorizontalAlignment="Center" Width="452" Height="36" VerticalAlignment="Top"/>
+        <Button Content="Загрузить" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" Width="112" Click="load_Click"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="137,420,0,0" VerticalAlignment="Top" Width="112" Click="Save_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="662,420,0,0" VerticalAlignment="Top" Width="112" Click="Back_Click"/>
+        <Label Content="Дата аренды" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="330,52,0,0"/>
+        <DatePicker Height="25" x:Name="tx_D_I" Margin="512,51,0,0"  HorizontalAlignment="Left" Width="200" VerticalAlignment="Top"/>
+        <Label Content="Количество дней" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.79,-1.679" Height="25" Width="104" Margin="330,100,0,0"/>
+        <TextBox x:Name="tx_Q_D" Margin="512,99,0,0" Text="{Binding Path=Issued_Cars.Quantity_Days}" HorizontalAlignment="Left" Width="200" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Дата возврата" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="330,148,0,0"/>
+        <DatePicker x:Name="tx_D_R" Margin="512,147,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="25" />
+        <Label Content="Сумма залога" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="330,196,0,0"/>
+        <TextBox x:Name="tx_D_A" HorizontalAlignment="Left" Height="25" Margin="512,195,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Text="{Binding Path=Cars.Deposit_Amount}" />
+        <Label Content="Сумма к оплате" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="330,244,0,0"/>
+        <TextBox Height="25" x:Name="tx_A_P" Margin="512,243,0,0" Text="{Binding Path=Issued_Cars.Amount_Payable}" HorizontalAlignment="Left" Width="200" VerticalAlignment= "Top"/>
+        <Button x:Name="rez" Content="Вывести" HorizontalAlignment="Left" Margin="726,104,0,0" VerticalAlignment="Top" Click="rez_Click"/>
+        <Button x:Name="summary" Content="Расчитать" HorizontalAlignment="Left" Margin="726,248,0,0" VerticalAlignment="Top" Click="summary_Click"/>
+        <Label Content="Клиент" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="11,53,0,0"/>
+        <ComboBox x:Name="cm_Clients" HorizontalAlignment="Left" Height="25" Margin="115,55,0,0"  VerticalAlignment="Top" Width="200" />
+        <Label Content="Автомобиль" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="11,100,0,0"/>
+        <ComboBox x:Name="cmb_Auto" HorizontalAlignment="Left" Height="25" Margin="115,99,0,0"  VerticalAlignment="Top" Width="200" SelectionChanged="cmb_Auto_SelectionChanged" />
+        <Label Content="Сотрудник" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="11,149,0,0"/>
+        <ComboBox x:Name="cm_Work" HorizontalAlignment="Left" Height="25" Margin="115,148,0,0"  VerticalAlignment="Top" Width="200" />
+
+    </Grid>
+</Page>

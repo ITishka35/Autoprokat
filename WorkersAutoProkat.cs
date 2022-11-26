@@ -12,18 +12,21 @@ namespace Autoprokat
     using System;
     using System.Collections.Generic;
     
-    public partial class Type_Cars
+    public partial class WorkersAutoProkat
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Type_Cars()
+        public WorkersAutoProkat()
         {
-            this.Cars = new HashSet<Cars>();
+            this.Issued_Cars = new HashSet<Issued_Cars>();
         }
     
-        public int ID_Type { get; set; }
-        public string Type { get; set; }
+        public int ID_Workers { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string Position { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cars> Cars { get; set; }
+        public virtual ICollection<Issued_Cars> Issued_Cars { get; set; }
     }
 }

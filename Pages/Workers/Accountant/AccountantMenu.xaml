@@ -9,10 +9,10 @@
       Title="AccountantMenu"  MinHeight="600" MinWidth="980" >
 
     <Grid Width="940" Height="605">
-        <Button Content="Сформировать отчет по клиентам" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Height="57" Width="246"/>
-        <Button Content="Сформировать отчет по средней длительности аренды авто" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Height="57" Width="246"/>
-        <Button Content="Сформировать отчет по количеству выданных авто" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Height="58" Width="246"/>
-        <Button Content="Назад" HorizontalAlignment="Left" Margin="554,382,0,0" VerticalAlignment="Top" Height="58" Width="246" Click="Button_Click"/>
+        <Button Content="Сформировать отчет по клиентам" HorizontalAlignment="Left" Margin="288,127,0,0" VerticalAlignment="Top" Height="24" Width="364" Click="Button_Click_1"/>
+        <Button Content="Сформировать отчет по средней длительности аренды авто" HorizontalAlignment="Left" Margin="288,164,0,0" VerticalAlignment="Top" Height="24" Width="364" RenderTransformOrigin="0.527,-0.375" Click="Button_Click_3"/>
+        <Button Content="Сформировать отчет по количеству выданных авто" HorizontalAlignment="Left" Margin="288,203,0,0" VerticalAlignment="Top" Height="24" Width="364" Click="Button_Click_2"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="737,35,0,0" VerticalAlignment="Top" Height="28" Width="177" Click="Button_Click"/>
 
     </Grid>
 </Page>

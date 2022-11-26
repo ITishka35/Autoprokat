@@ -12,14 +12,15 @@
           <Property Name="Marks" Type="nvarchar" MaxLength="50" />
           <Property Name="MainImagePath" Type="nvarchar(max)" />
           <Property Name="Model" Type="nvarchar" MaxLength="50" />
-          <Property Name="Year_Release" Type="date" />
+          <Property Name="Year_Release" Type="nvarchar" MaxLength="50" />
           <Property Name="Color" Type="nvarchar" MaxLength="50" />
-          <Property Name="Transmission" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Transmission" Type="int" />
           <Property Name="Engine_Volume" Type="nvarchar" MaxLength="25" />
-          <Property Name="Deposit_Amount" Type="int" />
-          <Property Name="Type" Type="int" />
+          <Property Name="Deposit_Amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Type" Type="int" />
           <Property Name="ID_Car" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="State_Number" Type="nvarchar" MaxLength="9" />
+          <Property Name="ID_Engines" Type="int" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
@@ -28,10 +29,10 @@
           <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Otchestvo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
           <Property Name="NumberPassport" Type="nchar" MaxLength="4" />
           <Property Name="SeriaPassport" Type="nchar" MaxLength="6" />
-          <Property Name="Birthday" Type="date" />
+          <Property Name="Birthday" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Adress" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -66,12 +67,26 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="Type_Cars">
+        <EntityType Name="TypeCars">
           <Key>
             <PropertyRef Name="ID_Type" />
           </Key>
           <Property Name="ID_Type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TypeEngineCars">
+          <Key>
+            <PropertyRef Name="ID_Engine" />
+          </Key>
+          <Property Name="ID_Engine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Engine" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TypeTransmission">
+          <Key>
+            <PropertyRef Name="ID_Transmission" />
+          </Key>
+          <Property Name="ID_Transmission" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Transmission" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -82,27 +97,55 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Workers">
+        <EntityType Name="WorkersAutoProkat">
           <Key>
             <PropertyRef Name="ID_Workers" />
           </Key>
           <Property Name="ID_Workers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Otchestvo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
           <Property Name="Position" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_Cars_Type_Cars">
-          <End Role="Type_Cars" Type="Self.Type_Cars" Multiplicity="0..1">
+        <Association Name="FK_Cars_TypeCars">
+          <End Role="TypeCars" Type="Self.TypeCars" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Type_Cars">
+            <Principal Role="TypeCars">
               <PropertyRef Name="ID_Type" />
             </Principal>
             <Dependent Role="Cars">
-              <PropertyRef Name="Type" />
+              <PropertyRef Name="ID_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_TypeEngineCars">
+          <End Role="TypeEngineCars" Type="Self.TypeEngineCars" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEngineCars">
+              <PropertyRef Name="ID_Engine" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_Engines" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_TypeTransmission">
+          <End Role="TypeTransmission" Type="Self.TypeTransmission" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeTransmission">
+              <PropertyRef Name="ID_Transmission" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_Transmission" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -135,12 +178,12 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Issued_Cars_Workers">
-          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1">
+          <End Role="WorkersAutoProkat" Type="Self.WorkersAutoProkat" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Issued_Cars" Type="Self.Issued_Cars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Workers">
+            <Principal Role="WorkersAutoProkat">
               <PropertyRef Name="ID_Workers" />
             </Principal>
             <Dependent Role="Issued_Cars">
@@ -197,11 +240,21 @@
           <EntitySet Name="Issued_Cars" EntityType="Self.Issued_Cars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Type_Cars" EntityType="Self.Type_Cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeCars" EntityType="Self.TypeCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeEngineCars" EntityType="Self.TypeEngineCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeTransmission" EntityType="Self.TypeTransmission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Cars_Type_Cars" Association="Self.FK_Cars_Type_Cars">
-            <End Role="Type_Cars" EntitySet="Type_Cars" />
+          <EntitySet Name="WorkersAutoProkat" EntityType="Self.WorkersAutoProkat" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cars_TypeCars" Association="Self.FK_Cars_TypeCars">
+            <End Role="TypeCars" EntitySet="TypeCars" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_TypeEngineCars" Association="Self.FK_Cars_TypeEngineCars">
+            <End Role="TypeEngineCars" EntitySet="TypeEngineCars" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_TypeTransmission" Association="Self.FK_Cars_TypeTransmission">
+            <End Role="TypeTransmission" EntitySet="TypeTransmission" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Issued_Cars_Cars" Association="Self.FK_Issued_Cars_Cars">
@@ -213,7 +266,7 @@
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Issued_Cars_Workers" Association="Self.FK_Issued_Cars_Workers">
-            <End Role="Workers" EntitySet="Workers" />
+            <End Role="WorkersAutoProkat" EntitySet="WorkersAutoProkat" />
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
@@ -261,11 +314,21 @@
           <EntitySet Name="Issued_Cars" EntityType="AutoProkatModel.Issued_Cars" />
           <EntitySet Name="Role" EntityType="AutoProkatModel.Role" />
           <EntitySet Name="sysdiagrams" EntityType="AutoProkatModel.sysdiagrams" />
-          <EntitySet Name="Type_Cars" EntityType="AutoProkatModel.Type_Cars" />
+          <EntitySet Name="TypeCars" EntityType="AutoProkatModel.TypeCars" />
+          <EntitySet Name="TypeEngineCars" EntityType="AutoProkatModel.TypeEngineCars" />
+          <EntitySet Name="TypeTransmission" EntityType="AutoProkatModel.TypeTransmission" />
           <EntitySet Name="Users" EntityType="AutoProkatModel.Users" />
-          <EntitySet Name="Workers" EntityType="AutoProkatModel.Workers" />
-          <AssociationSet Name="FK_Cars_Type_Cars" Association="AutoProkatModel.FK_Cars_Type_Cars">
-            <End Role="Type_Cars" EntitySet="Type_Cars" />
+          <EntitySet Name="WorkersAutoProkat" EntityType="AutoProkatModel.WorkersAutoProkat" />
+          <AssociationSet Name="FK_Cars_TypeCars" Association="AutoProkatModel.FK_Cars_TypeCars">
+            <End Role="TypeCars" EntitySet="TypeCars" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_TypeEngineCars" Association="AutoProkatModel.FK_Cars_TypeEngineCars">
+            <End Role="TypeEngineCars" EntitySet="TypeEngineCars" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_TypeTransmission" Association="AutoProkatModel.FK_Cars_TypeTransmission">
+            <End Role="TypeTransmission" EntitySet="TypeTransmission" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Issued_Cars_Cars" Association="AutoProkatModel.FK_Issued_Cars_Cars">
@@ -277,7 +340,7 @@
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Issued_Cars_Workers" Association="AutoProkatModel.FK_Issued_Cars_Workers">
-            <End Role="Workers" EntitySet="Workers" />
+            <End Role="WorkersAutoProkat" EntitySet="WorkersAutoProkat" />
             <End Role="Issued_Cars" EntitySet="Issued_Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Role" Association="AutoProkatModel.FK_Users_Role">
@@ -303,15 +366,18 @@
           <Property Name="Marks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MainImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Year_Release" Type="DateTime" Precision="0" />
+          <Property Name="Year_Release" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Transmission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Transmission" Type="Int32" />
           <Property Name="Engine_Volume" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Deposit_Amount" Type="Int32" />
-          <Property Name="Type" Type="Int32" />
+          <Property Name="Deposit_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Type" Type="Int32" />
           <Property Name="ID_Car" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="State_Number" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Type_Cars" Relationship="AutoProkatModel.FK_Cars_Type_Cars" FromRole="Cars" ToRole="Type_Cars" />
+          <Property Name="ID_Engines" Type="Int32" />
+          <NavigationProperty Name="TypeCars" Relationship="AutoProkatModel.FK_Cars_TypeCars" FromRole="Cars" ToRole="TypeCars" />
+          <NavigationProperty Name="TypeEngineCars" Relationship="AutoProkatModel.FK_Cars_TypeEngineCars" FromRole="Cars" ToRole="TypeEngineCars" />
+          <NavigationProperty Name="TypeTransmission" Relationship="AutoProkatModel.FK_Cars_TypeTransmission" FromRole="Cars" ToRole="TypeTransmission" />
           <NavigationProperty Name="Issued_Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Cars" FromRole="Cars" ToRole="Issued_Cars" />
         </EntityType>
         <EntityType Name="Clients">
@@ -321,10 +387,10 @@
           <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NumberPassport" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="SeriaPassport" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Birthday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Issued_Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Clients" FromRole="Clients" ToRole="Issued_Cars" />
@@ -344,7 +410,7 @@
           <Property Name="Amount_Payable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Cars" FromRole="Issued_Cars" ToRole="Cars" />
           <NavigationProperty Name="Clients" Relationship="AutoProkatModel.FK_Issued_Cars_Clients" FromRole="Issued_Cars" ToRole="Clients" />
-          <NavigationProperty Name="Workers" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="Issued_Cars" ToRole="Workers" />
+          <NavigationProperty Name="WorkersAutoProkat" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="Issued_Cars" ToRole="WorkersAutoProkat" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -364,13 +430,29 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Type_Cars">
+        <EntityType Name="TypeCars">
           <Key>
             <PropertyRef Name="ID_Type" />
           </Key>
           <Property Name="ID_Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Cars" Relationship="AutoProkatModel.FK_Cars_Type_Cars" FromRole="Type_Cars" ToRole="Cars" />
+          <NavigationProperty Name="Cars" Relationship="AutoProkatModel.FK_Cars_TypeCars" FromRole="TypeCars" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="TypeEngineCars">
+          <Key>
+            <PropertyRef Name="ID_Engine" />
+          </Key>
+          <Property Name="ID_Engine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Engine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="AutoProkatModel.FK_Cars_TypeEngineCars" FromRole="TypeEngineCars" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="TypeTransmission">
+          <Key>
+            <PropertyRef Name="ID_Transmission" />
+          </Key>
+          <Property Name="ID_Transmission" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Transmission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="AutoProkatModel.FK_Cars_TypeTransmission" FromRole="TypeTransmission" ToRole="Cars" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -382,28 +464,56 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Role" Relationship="AutoProkatModel.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Workers">
+        <EntityType Name="WorkersAutoProkat">
           <Key>
             <PropertyRef Name="ID_Workers" />
           </Key>
           <Property Name="ID_Workers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Issued_Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="Workers" ToRole="Issued_Cars" />
+          <NavigationProperty Name="Issued_Cars" Relationship="AutoProkatModel.FK_Issued_Cars_Workers" FromRole="WorkersAutoProkat" ToRole="Issued_Cars" />
         </EntityType>
-        <Association Name="FK_Cars_Type_Cars">
-          <End Type="AutoProkatModel.Type_Cars" Role="Type_Cars" Multiplicity="0..1">
+        <Association Name="FK_Cars_TypeCars">
+          <End Type="AutoProkatModel.TypeCars" Role="TypeCars" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="AutoProkatModel.Cars" Role="Cars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Type_Cars">
+            <Principal Role="TypeCars">
               <PropertyRef Name="ID_Type" />
             </Principal>
             <Dependent Role="Cars">
-              <PropertyRef Name="Type" />
+              <PropertyRef Name="ID_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_TypeEngineCars">
+          <End Type="AutoProkatModel.TypeEngineCars" Role="TypeEngineCars" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AutoProkatModel.Cars" Role="Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEngineCars">
+              <PropertyRef Name="ID_Engine" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_Engines" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_TypeTransmission">
+          <End Type="AutoProkatModel.TypeTransmission" Role="TypeTransmission" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AutoProkatModel.Cars" Role="Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeTransmission">
+              <PropertyRef Name="ID_Transmission" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_Transmission" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -436,12 +546,12 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Issued_Cars_Workers">
-          <End Type="AutoProkatModel.Workers" Role="Workers" Multiplicity="0..1">
+          <End Type="AutoProkatModel.WorkersAutoProkat" Role="WorkersAutoProkat" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="AutoProkatModel.Issued_Cars" Role="Issued_Cars" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Workers">
+            <Principal Role="WorkersAutoProkat">
               <PropertyRef Name="ID_Workers" />
             </Principal>
             <Dependent Role="Issued_Cars">
@@ -494,12 +604,13 @@
           <EntitySetMapping Name="Cars">
             <EntityTypeMapping TypeName="AutoProkatModel.Cars">
               <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="ID_Engines" ColumnName="ID_Engines" />
                 <ScalarProperty Name="State_Number" ColumnName="State_Number" />
                 <ScalarProperty Name="ID_Car" ColumnName="ID_Car" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
                 <ScalarProperty Name="Deposit_Amount" ColumnName="Deposit_Amount" />
                 <ScalarProperty Name="Engine_Volume" ColumnName="Engine_Volume" />
-                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="ID_Transmission" ColumnName="ID_Transmission" />
                 <ScalarProperty Name="Color" ColumnName="Color" />
                 <ScalarProperty Name="Year_Release" ColumnName="Year_Release" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -516,7 +627,7 @@
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="SeriaPassport" ColumnName="SeriaPassport" />
                 <ScalarProperty Name="NumberPassport" ColumnName="NumberPassport" />
-                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
@@ -557,11 +668,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Type_Cars">
-            <EntityTypeMapping TypeName="AutoProkatModel.Type_Cars">
-              <MappingFragment StoreEntitySet="Type_Cars">
+          <EntitySetMapping Name="TypeCars">
+            <EntityTypeMapping TypeName="AutoProkatModel.TypeCars">
+              <MappingFragment StoreEntitySet="TypeCars">
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeEngineCars">
+            <EntityTypeMapping TypeName="AutoProkatModel.TypeEngineCars">
+              <MappingFragment StoreEntitySet="TypeEngineCars">
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="ID_Engine" ColumnName="ID_Engine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeTransmission">
+            <EntityTypeMapping TypeName="AutoProkatModel.TypeTransmission">
+              <MappingFragment StoreEntitySet="TypeTransmission">
+                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="ID_Transmission" ColumnName="ID_Transmission" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -575,11 +702,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Workers">
-            <EntityTypeMapping TypeName="AutoProkatModel.Workers">
-              <MappingFragment StoreEntitySet="Workers">
+          <EntitySetMapping Name="WorkersAutoProkat">
+            <EntityTypeMapping TypeName="AutoProkatModel.WorkersAutoProkat">
+              <MappingFragment StoreEntitySet="WorkersAutoProkat">
                 <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="ID_Workers" ColumnName="ID_Workers" />

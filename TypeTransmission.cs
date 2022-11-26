@@ -12,20 +12,18 @@ namespace Autoprokat
     using System;
     using System.Collections.Generic;
     
-    public partial class Issued_Cars
+    public partial class TypeTransmission
     {
-        public int ID_Hire { get; set; }
-        public Nullable<int> ID_Client { get; set; }
-        public Nullable<int> ID_Car { get; set; }
-        public Nullable<int> ID_Workers { get; set; }
-        public Nullable<System.DateTime> Date_Issue { get; set; }
-        public string Quatity_Days { get; set; }
-        public Nullable<System.DateTime> Date_Return { get; set; }
-        public string Deposit_amount { get; set; }
-        public string Amount_Payable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TypeTransmission()
+        {
+            this.Cars = new HashSet<Cars>();
+        }
     
-        public virtual Cars Cars { get; set; }
-        public virtual Clients Clients { get; set; }
-        public virtual WorkersAutoProkat WorkersAutoProkat { get; set; }
+        public int ID_Transmission { get; set; }
+        public string Transmission { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cars> Cars { get; set; }
     }
 }

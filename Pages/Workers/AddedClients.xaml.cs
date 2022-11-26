@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autoprokat.AppConnestion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,68 @@ namespace Autoprokat.Pages.Workers
     /// </summary>
     public partial class AddedClients : Page
     {
+        private int ID;
         public AddedClients()
         {
             InitializeComponent();
+            ListSpisok.ItemsSource = AppConnect.model.Clients.ToArray();
+            AppConnect.model = new CarsProkatEntities();
+        }
+
+        private void SaveAll_Click(object sender, RoutedEventArgs e)
+        {
+            Clients clients = new Clients
+            {
+                LastName = txt_LastName.Text,
+                FirstName = txt_FirstName.Text,
+                MiddleName = txt_MiddleName.Text,
+                NumberPassport = txt_NumberPassport.Text,
+                SeriaPassport = txt_SeriasPassport.Text,
+                Phone = txt_Phone.Text,
+                Birthday = dp_Birthday.SelectedDate.Value.ToString("dd-mm-yyyy"),
+                Adress = txt_Address.Text,
+            };
+            AppConnect.model.Clients.Add(clients);
+            AppConnect.model.SaveChanges();
+            MessageBox.Show("Запись была добавлена!");
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            AppFrame.Frames.Navigate(new Manager());
+        }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AppConnect.model.Clients.Remove(AppConnect.model.Clients.Where(p => p.ID_Client == ID).FirstOrDefault());
+                AppConnect.model.SaveChanges();
+                MessageBox.Show("Запись удалена");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" " + ex);
+            }
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            RedList.ItemsSource = ListSpisok.SelectedItems;
+            Red.Visibility = Visibility.Visible;
+        }
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            RedList.ItemsSource = ListSpisok.SelectedItems;
+            Red.Visibility = Visibility.Hidden;
+        }
+
+        private void ListSpisok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBox listBox = (ListBox)sender;
+            Clients clients= (Clients)listBox.Items[listBox.SelectedIndex];
+            ID = int.Parse(clients.ID_Client.ToString());
         }
     }
 }
