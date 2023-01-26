@@ -20,7 +20,8 @@ namespace Autoprokat.Pages.Workers
 
         private void Sign_In_Click(object sender, RoutedEventArgs e)
         {
-            var userr = AppConnect.model.Users.Where(p => p.Password == Password.Text.ToString() && p.Login == Login.Text.ToString()).FirstOrDefault();
+            var userr = AppConnect.model.Users.Where(p => p.Password == Password.Password.ToString() 
+            && p.Login == Login.Text.ToString()).FirstOrDefault();
             if (userr == null)
             {
                 MessageBox.Show("Пользователь не найден");
@@ -41,7 +42,7 @@ namespace Autoprokat.Pages.Workers
                     }
                     else if (userr.Role.ID_Role == 3)
                     {
-                        MessageBox.Show("Вы зашли как менеджер");
+                        MessageBox.Show("Вы зашли как бухгалтер");
                         AppFrame.Frames.Navigate(new Accountant.AccountantMenu());
                     }
                 }

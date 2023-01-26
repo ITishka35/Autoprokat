@@ -10,9 +10,9 @@
         <EntityTypeShape EntityType="AutoProkatModel.Issued_Cars" Width="1.5" PointX="5.25" PointY="2.75" />
         <EntityTypeShape EntityType="AutoProkatModel.Role" Width="1.5" PointX="5.75" PointY="7.375" />
         <EntityTypeShape EntityType="AutoProkatModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2" />
-        <EntityTypeShape EntityType="AutoProkatModel.TypeCars" Width="1.5" PointX="0.75" PointY="3.625" />
-        <EntityTypeShape EntityType="AutoProkatModel.TypeEngineCars" Width="1.5" PointX="0.75" PointY="6.375" />
-        <EntityTypeShape EntityType="AutoProkatModel.TypeTransmission" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AutoProkatModel.TypeCars" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AutoProkatModel.TypeEngineCars" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="AutoProkatModel.TypeTransmission" Width="1.5" PointX="0.75" PointY="6.375" />
         <EntityTypeShape EntityType="AutoProkatModel.Users" Width="1.5" PointX="8" PointY="7.25" />
         <EntityTypeShape EntityType="AutoProkatModel.WorkersAutoProkat" Width="1.5" PointX="3" PointY="7.25" />
         <AssociationConnector Association="AutoProkatModel.FK_Cars_TypeCars" />
@@ -20,7 +20,7 @@
         <AssociationConnector Association="AutoProkatModel.FK_Cars_TypeTransmission" />
         <AssociationConnector Association="AutoProkatModel.FK_Issued_Cars_Cars" />
         <AssociationConnector Association="AutoProkatModel.FK_Issued_Cars_Clients" />
-        <AssociationConnector Association="AutoProkatModel.FK_Issued_Cars_Workers" />
+        <AssociationConnector Association="AutoProkatModel.FK_Issued_Cars_WorkersAutoProkat" />
         <AssociationConnector Association="AutoProkatModel.FK_Users_Role" />
       </Diagram>
     </edmx:Diagrams>

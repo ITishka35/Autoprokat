@@ -24,9 +24,10 @@ namespace Autoprokat.Pages.Workers
         private int ID;
         public AddedClients()
         {
+            AppConnect.model = new CarsProkatEntities();
             InitializeComponent();
             ListSpisok.ItemsSource = AppConnect.model.Clients.ToArray();
-            AppConnect.model = new CarsProkatEntities();
+            RedList.ItemsSource = AppConnect.model.Cars.ToArray();
         }
 
         private void SaveAll_Click(object sender, RoutedEventArgs e)
@@ -57,7 +58,9 @@ namespace Autoprokat.Pages.Workers
         {
             try
             {
-                AppConnect.model.Clients.Remove(AppConnect.model.Clients.Where(p => p.ID_Client == ID).FirstOrDefault());
+                Clients client= new Clients();
+                client = ListSpisok.SelectedItem as Clients;
+                AppConnect.model.Clients.Remove(client);
                 AppConnect.model.SaveChanges();
                 MessageBox.Show("Запись удалена");
             }
@@ -71,19 +74,22 @@ namespace Autoprokat.Pages.Workers
         {
             RedList.ItemsSource = ListSpisok.SelectedItems;
             Red.Visibility = Visibility.Visible;
+            RedList.Visibility = Visibility.Visible;
+            AppConnect.model.SaveChanges();
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
             RedList.ItemsSource = ListSpisok.SelectedItems;
             Red.Visibility = Visibility.Hidden;
+            AppConnect.model.SaveChanges();
         }
 
         private void ListSpisok_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListBox listBox = (ListBox)sender;
-            Clients clients= (Clients)listBox.Items[listBox.SelectedIndex];
-            ID = int.Parse(clients.ID_Client.ToString());
+            //ListBox listBox = (ListBox)sender;
+            //Clients clients= (Clients)listBox.Items[listBox.SelectedIndex];
+            //ID = int.Parse(clients.ID_Client.ToString());
         }
     }
 }

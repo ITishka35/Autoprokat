@@ -9,11 +9,26 @@
       Title="Manager"  MinHeight="600" MinWidth="980">
 
     <Grid>
-        <Button Content="Выбор автомобиля"  HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Height="57" Width="246" Click="CarSelection_Click"/>
-        <Button Content="Добавление клиента в базу данных" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Height="57" Width="246" Click="AddedClients_Click"/>
-        <Button Content="Заключение договора" Click="Contract_Click" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Height="58" Width="246"/>
-        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Height="58" Width="246" Click="GoBack_Click"/>
-        <Label Content="Меню менеджера" FontSize="20" Margin="303,27,0,0" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="451"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="77*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="195*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="74*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Выбор автомобиля"  HorizontalAlignment="Left" Margin="6,7,0,0" VerticalAlignment="Top" Height="50" Width="360" Click="CarSelection_Click" Grid.Column="1" Grid.Row="3"/>
+        <Button Content="Добавление клиента в базу данных" HorizontalAlignment="Left" Margin="6,12,0,0" VerticalAlignment="Top" Height="50" Width="360" Click="AddedClients_Click" Grid.Column="1" Grid.Row="4"/>
+        <Button Content="Заключение договора" Click="Contract_Click" HorizontalAlignment="Left" Margin="6,8,0,0" VerticalAlignment="Top" Height="50" Width="360" Grid.Column="1" Grid.Row="5"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="6,6,0,0" VerticalAlignment="Top" Height="50" Width="360" Click="GoBack_Click" Grid.Column="1" Grid.Row="6"/>
+        <Label Content="Меню менеджера" FontSize="20" Margin="96,6,0,0" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="180" Grid.Column="1" Grid.Row="1"/>
 
     </Grid>
 </Page>

@@ -10,19 +10,24 @@
     <Grid Margin="0,10,0,10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="363*"/>
-            <ColumnDefinition Width="390*"/>
+            <ColumnDefinition Width="72*"/>
+            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="81*"/>
             <ColumnDefinition Width="347*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="143*"/>
-            <RowDefinition Height="58*"/>
-            <RowDefinition Height="58*"/>
-            <RowDefinition Height="58*"/>
-            <RowDefinition Height="388*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="430*"/>
         </Grid.RowDefinitions>
-        <Button  Content="Ведение справочника сотрудников"  HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="24" Width="360" Click="AddWorkers_Click" Grid.Row="2" Grid.Column="1"/>
-        <Button  Content="Ведение справочника автомобилей" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="24" Width="360" Click="AddCars_Click" Grid.Row="1" Grid.Column="1"/>
-        <Button  Content="Назад"   HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="24" Width="360" Click="OnBack_Click" Grid.Row="3" Grid.Column="1"   />
+        <Button  Content="Ведение справочника сотрудников"  HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="50" Width="360" Click="AddWorkers_Click" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Button  Content="Ведение справочника автомобилей" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="50" Width="360" Click="AddCars_Click" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Button  Content="Назад"   HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center" Height="50" Width="360" Click="OnBack_Click" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"   />
+        <Label Content="Меню администратора" FontSize="20" Margin="6,0,0,0" Height="34" VerticalAlignment="Center" HorizontalAlignment="Left" Width="221" Grid.Column="2" Grid.Row="1"/>
 
     </Grid>
 </Page>

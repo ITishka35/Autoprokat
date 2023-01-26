@@ -26,11 +26,46 @@
         <Button x:Name="rez" Content="Вывести" HorizontalAlignment="Left" Margin="726,104,0,0" VerticalAlignment="Top" Click="rez_Click"/>
         <Button x:Name="summary" Content="Расчитать" HorizontalAlignment="Left" Margin="726,248,0,0" VerticalAlignment="Top" Click="summary_Click"/>
         <Label Content="Клиент" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="11,53,0,0"/>
-        <ComboBox x:Name="cm_Clients" HorizontalAlignment="Left" Height="25" Margin="115,55,0,0"  VerticalAlignment="Top" Width="200" />
+        <ComboBox x:Name="cm_Clients" HorizontalAlignment="Left" Height="25" Margin="115,55,0,0"  VerticalAlignment="Top" Width="200" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                    <Run Text="{Binding LastName}"/>
+                       <Run Text=" "></Run>
+                    <Run Text="{Binding FirstName}"/>
+                        <Run Text=" "></Run>
+                    <Run Text="{Binding MiddleName}"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Label Content="Автомобиль" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="11,100,0,0"/>
-        <ComboBox x:Name="cmb_Auto" HorizontalAlignment="Left" Height="25" Margin="115,99,0,0"  VerticalAlignment="Top" Width="200" SelectionChanged="cmb_Auto_SelectionChanged" />
+        <ComboBox x:Name="cmb_Auto" HorizontalAlignment="Left" Height="25" Margin="115,99,0,0"  VerticalAlignment="Top" Width="200" SelectionChanged="cmb_Auto_SelectionChanged" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                    <Run Text="{Binding Marks}"/>
+                       <Run Text=" "></Run>
+                    <Run Text="{Binding Model}"/>
+                        <Run Text=" "></Run>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Label Content="Сотрудник" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="104" Margin="11,149,0,0"/>
-        <ComboBox x:Name="cm_Work" HorizontalAlignment="Left" Height="25" Margin="115,148,0,0"  VerticalAlignment="Top" Width="200" />
+        <ComboBox x:Name="cm_Work" HorizontalAlignment="Left" Height="25" Margin="115,148,0,0"  VerticalAlignment="Top" Width="200" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                    <Run Text="{Binding LastName}"/>
+                       <Run Text=" "></Run>
+                    <Run Text="{Binding FirstName}"/>
+                        <Run Text=" "></Run>
+                    <Run Text="{Binding MiddleName}"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
     </Grid>
 </Page>

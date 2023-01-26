@@ -64,28 +64,34 @@ namespace Autoprokat.Pages.Administrator
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            //var item = ListSpisok.SelectedItem as Cars;
-            //item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
-            //item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
-            //item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
-
-
+            MessageBox.Show("Выбрать тип авто/трансмиссии/двигателя");
             RedList.ItemsSource = ListSpisok.SelectedItems;
             cmb_EditEngine.Visibility = Visibility.Visible;
             cmb_EditTypeTransmission.Visibility = Visibility.Visible;
             cmb_EditType.Visibility = Visibility.Visible;
             Red.Visibility = Visibility.Visible;
             StackEdit.Visibility = Visibility.Visible;
-
-
+        }
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            
+            RedList.ItemsSource = ListSpisok.SelectedItems;
+            Red.Visibility = Visibility.Hidden;
+            StackEdit.Visibility = Visibility.Hidden;
+            var item = ListSpisok.SelectedItem as Cars;
+            item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
+            item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
+            item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
+            AppConnect.model.SaveChanges();
 
         }
-
         private void Del_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                AppConnect.model.Cars.Remove(AppConnect.model.Cars.Where(p => p.ID_Car == ID).FirstOrDefault());
+                Cars carses = new Cars();
+                carses = ListSpisok.SelectedItem as Cars; 
+                AppConnect.model.Cars.Remove(carses);
                 AppConnect.model.SaveChanges();
                 MessageBox.Show("Запись удалена");
             }
@@ -97,24 +103,32 @@ namespace Autoprokat.Pages.Administrator
 
         private void All_Save_Click(object sender, RoutedEventArgs e)
         {
-            Cars cars = new Cars
+            try
             {
-                Marks = txtbMarks.Text,   
-                MainImagePath = imagePath.Text,
-                Model = txb_Model.Text,
-                Year_Release = txb_Year.SelectedDate.ToString(),
-                Color = txb_Color.Text,
-                ID_Transmission = AppConnect.model.TypeTransmission.Where(p => p.ID_Transmission == cmb_TypeTransmission.SelectedIndex + 1).Select(p => p.ID_Transmission).FirstOrDefault(),
-                Engine_Volume = txb_Eng_Volume.Text,
-                Deposit_Amount = txb_Amount_Deposit.Text,
-                State_Number = txb_State_Number.Text,
-                ID_Type = AppConnect.model.TypeCars.Where(p => p.ID_Type == cmb_TypeAuto.SelectedIndex + 1).Select(p => p.ID_Type).FirstOrDefault(),
-                ID_Engines = AppConnect.model.TypeEngineCars.Where(p => p.ID_Engine == cmb_Engine.SelectedIndex).Select(p => p.ID_Engine).FirstOrDefault()
-            };
+                Cars cars = new Cars
+                {
+                    Marks = txb_MarkAuto.Text.ToString(),
+                    MainImagePath = imagePath1.Source.ToString(),
+                    Model = txb_Model.Text,
+                    Year_Release = txb_Year.SelectedDate.ToString(),
+                    Color = txb_Color.Text,
+                    TypeTransmission = cmb_TypeTransmission.SelectedItem as TypeTransmission,
+                    Engine_Volume = txb_Eng_Volume.Text,
+                    Deposit_Amount = txb_Amount_Deposit.Text,
+                    State_Number = txb_State_Number.Text,
+                    TypeCars = cmb_TypeAuto.SelectedItem as TypeCars,
 
-            AppConnect.model.Cars.Add(cars);
-            AppConnect.model.SaveChanges();
-            MessageBox.Show("Запись была добавлена!");
+                    TypeEngineCars = cmb_Engine.SelectedItem as TypeEngineCars,
+                };
+
+                AppConnect.model.Cars.Add(cars);
+                AppConnect.model.SaveChanges();
+                MessageBox.Show("Запись была добавлена!");
+            }
+            catch 
+            {
+                MessageBox.Show("Вы не заполнили поля или не добавили фото");
+            }
         }
 
         private void BackPage_Click(object sender, RoutedEventArgs e)
@@ -173,28 +187,21 @@ namespace Autoprokat.Pages.Administrator
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
-                var Picture = AppConnect.model.Cars.Where(p => p.ID_Car == (ListSpisok.SelectedIndex + 1)).FirstOrDefault();
-                Picture.MainImagePath = openFileDialog.FileName;
-                AppConnect.model.SaveChanges();
-                ListSpisok.ItemsSource = AppConnect.model.Cars.Where(p => p.ID_Car == (ListSpisok.SelectedIndex + 1)).ToArray();
+                imagePath1.Source = new BitmapImage(new Uri(openFileDialog.FileName));
             }
+            //OpenFileDialog openFileDialog = new OpenFileDialog();
+            //if (openFileDialog.ShowDialog() == true)
+            //{
+            //    var Picture = AppConnect.model.Cars.Where(p => p.ID_Car == (ListSpisok.SelectedIndex + 1)).FirstOrDefault();
+            //    Picture.MainImagePath = openFileDialog.FileName;
+            //    AppConnect.model.SaveChanges();
+            //    ListSpisok.ItemsSource = AppConnect.model.Cars.Where(p => p.ID_Car == (ListSpisok.SelectedIndex + 1)).ToArray();
+            //}
         }
 
 
 
-        private void save_Click(object sender, RoutedEventArgs e)
-        {
-            
-            RedList.ItemsSource = ListSpisok.SelectedItems;
-            Red.Visibility = Visibility.Hidden;
-            StackEdit.Visibility = Visibility.Hidden;
-            var item = ListSpisok.SelectedItem as Cars;
-            item.TypeEngineCars = cmb_EditEngine.SelectedItem as TypeEngineCars;
-            item.TypeCars = cmb_EditType.SelectedItem as TypeCars;
-            item.TypeTransmission = cmb_EditTypeTransmission.SelectedItem as TypeTransmission;
-            AppConnect.model.SaveChanges();
 
-        }
 
         private void ListSpisok_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

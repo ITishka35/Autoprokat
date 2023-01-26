@@ -26,6 +26,7 @@ namespace Autoprokat.Pages.Workers.Accountant
         public ReportDurationRent()
         {
             InitializeComponent();
+            ReporClients.ItemsSource = AppConnect.model.Issued_Cars.ToArray();
         }
 
         private void btn_load_Click(object sender, RoutedEventArgs e)
@@ -41,16 +42,13 @@ namespace Autoprokat.Pages.Workers.Accountant
 
 
             const string template3 = "ReportsTimeCars.xlsx";
-            //Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
             string path = Path.Combine(Environment.CurrentDirectory, template3);
-            //wb = application.Workbooks.Open(path);
             workBook = app.Workbooks.Open(path);
 
             Worksheet ws = workBook.Worksheets[1];
             DateTime currentDate = DateTime.Now;
             List<Issued_Cars> list = AppConnect.model.Issued_Cars.ToList();
             int count = 0;
-            //var sheets = workBook.Worksheets.Add("Clients");
             int i;
             int j = 0;
             var row = 6;
@@ -59,7 +57,6 @@ namespace Autoprokat.Pages.Workers.Accountant
             {
 
                 foreach (Issued_Cars item in list)
-                //for (j = 0; j < list.Count; j++)
                 {
                     ws.Cells[row, column].Value = list[i].Cars.Color;
                     ws.Cells[row, column + 1].Value = list[i].Cars.Marks;

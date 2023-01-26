@@ -22,7 +22,7 @@ namespace Autoprokat.Pages.Administrator
     /// </summary>
     public partial class Add_Workers : Page
     {
-        
+
         public Add_Workers()
         {
             InitializeComponent();
@@ -55,32 +55,22 @@ namespace Autoprokat.Pages.Administrator
             RedList.ItemsSource = ListSpisok.SelectedItems;
             Red.Visibility = Visibility.Visible;
         }
-
-        private void Del_Click(object sender, RoutedEventArgs e)
-        {
-
-            if (ListSpisok.SelectedIndex == -1)//Если не выбран ни один блок Select Index принимает значение -1, первый же блок всегда нумеруется 0
-                MessageBox.Show("Выберите сотрудника", "Уведомление", MessageBoxButton.OK);
-            else
-                try
-                {
-                    AppConnect.model.WorkersAutoProkat.Remove(AppConnect.model.WorkersAutoProkat.Where(p => p.ID_Workers == AppHelp.ID_Workers).FirstOrDefault()); //Код удаление по Id
-                                                                                                                                                                   //Здесь возможно понадобиться код для удаления из двух других таблиц строк, в которых Id сервиса внешний ключ. Пишется от также как сверху,
-                                                                                                                                                                   ////Только имеет не метод Firstordefault()
-                    AppConnect.model.SaveChanges();
-                    ListSpisok.ItemsSource = AppConnect.model.WorkersAutoProkat.ToArray();
-                }
-                catch
-                {
-                    MessageBox.Show("Ошибка удаления из базы данных:", "уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-        }
-
         private void save_Click(object sender, RoutedEventArgs e)
         {
             AppConnect.model.SaveChanges();
             Red.Visibility = Visibility.Hidden;
         }
+
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            WorkersAutoProkat workersAutoProkat = new WorkersAutoProkat();
+            workersAutoProkat = ListSpisok.SelectedItem as WorkersAutoProkat;
+            AppConnect.model.WorkersAutoProkat.Remove(workersAutoProkat);
+            AppConnect.model.SaveChanges();
+            MessageBox.Show("Запись удалена");
+        }
+
+
 
 
         private void cmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -95,12 +85,12 @@ namespace Autoprokat.Pages.Administrator
 
         private void Search_Online(object sender, TextChangedEventArgs e)
         {
-            
+
             ListSpisok.ItemsSource = AppConnect.model.WorkersAutoProkat.Where(x => x.LastName.Contains(txtbLastName.Text)).ToArray(); // Поиск по наименованию
                                                                                                                                       //Фильтрация по размеру скидки
             if (cmbFilter.Text == "Менеджер")
             {
-                ListSpisok.ItemsSource = AppConnect.model.WorkersAutoProkat.Where(x => x.LastName.Contains(txtbLastName.Text)).Where(x=> x.Position == cmbFilter.Text).ToArray();
+                ListSpisok.ItemsSource = AppConnect.model.WorkersAutoProkat.Where(x => x.LastName.Contains(txtbLastName.Text)).Where(x => x.Position == cmbFilter.Text).ToArray();
             }
             else
             {
@@ -118,21 +108,15 @@ namespace Autoprokat.Pages.Administrator
 
                     else
                     {
-                        //if (cmbFilter.Text == "Внедорожник")
-                        //{
-                        //    ListSpisok.ItemsSource = AppConnect.model.WorkersAutoProkat.Where(x => x.LastName.Contains(txtbLastName.Text)).Where(x => x.Discount >= 0.3 x.Discount < 0.7).ToArray();
-                        //}
-                        //else
-                        //{
-                            if (cmbFilter.Text == "Все")
-                            {
-                                ListSpisok.ItemsSource = AppConnect.model.WorkersAutoProkat.Where(x => x.LastName.Contains(txtbLastName.Text)).ToArray();
-                            }
+                        if (cmbFilter.Text == "Все")
+                        {
+                            ListSpisok.ItemsSource = AppConnect.model.WorkersAutoProkat.Where(x => x.LastName.Contains(txtbLastName.Text)).ToArray();
                         }
                     }
                 }
             }
         }
     }
+}
 
 

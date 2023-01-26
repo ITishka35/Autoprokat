@@ -24,7 +24,7 @@
                 <RowDefinition Height="23*"/>
             </Grid.RowDefinitions>
             <Button x:Name="btn_Report" Click="btn_Report_Click" Content="Вывести отчет" HorizontalAlignment="Center" Margin="0,17,0,0" VerticalAlignment="Top" Width="172" Grid.Row="2" Grid.Column="3" Background="#FF27BFDC"/>
-            <ListView x:Name="ReporClients" Margin="10,10,10,10" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
+            <ListView x:Name="ReporClients" Margin="10,56,10,10" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Color}"
@@ -33,7 +33,7 @@
                                     Header="Автомобиль" Width="150"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Model}"
                                     Header="Модель" Width="120"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Issued_Cars.Date_Issue}"
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Date_Issue}"
                                     Header="Дата выдачи" Width="150"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Cars.Deposit_Amount}"
                                     Header="Сумма залога" Width="80"/>
@@ -43,6 +43,7 @@
             </ListView>
 
             <Button x:Name="btn_load" Click="btn_load_Click" Content="Назад" HorizontalAlignment="Left" Margin="21,17,0,0" VerticalAlignment="Top" Width="174" Grid.Row="2" Grid.Column="1" Background="#FF27BFDC" Foreground="Black"/>
+            <Label Content="Отчет по количеству выданных авто" FontSize="14" Height="31" VerticalAlignment="Top" HorizontalAlignment="Center" Width="249" Grid.Column="2" Grid.Row="1" Margin="0,8,0,0"/>
             <!--<DocumentViewer x:Name="DocViewer" Margin="6,14,8,10" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1"/>-->
         </Grid>
     </Grid>

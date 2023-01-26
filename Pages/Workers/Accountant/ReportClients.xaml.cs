@@ -40,7 +40,7 @@ namespace Autoprokat.Pages.Workers.Accountant
             app.Visible = true;
             app.WindowState = XlWindowState.xlMaximized;
             const string template3 = "ReportsClients.xlsx";
-            string path = Path.Combine(@"C:\Users\Maria & Vlad\source\repos\Autoprokat\bin\Debug\", template3);
+            string path = Path.Combine(Environment.CurrentDirectory,template3);
             workBook = app.Workbooks.Open(path);
             Worksheet ws = workBook.Worksheets[1];
             DateTime currentDate = DateTime.Now;
@@ -48,7 +48,7 @@ namespace Autoprokat.Pages.Workers.Accountant
             int count = 0;
             int i;
             int j = 0;
-            var row = 6;
+            var row = 7;
             var column = 1;
             for (i = 0; i < list.Count; i++)
             {

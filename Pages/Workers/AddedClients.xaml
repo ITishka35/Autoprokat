@@ -47,14 +47,9 @@
         <TextBox x:Name="txt_Phone" HorizontalAlignment="Left" Height="25" Margin="50,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Text="{Binding Phone}" Grid.Column="1" Grid.Row="7" />
         <Label Content="Адрес прописки" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="9" Height="25" Width="104"/>
         <TextBox x:Name="txt_Address" HorizontalAlignment="Left" Height="25" Margin="50,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Text="{Binding Adress}" Grid.Column="1" Grid.Row="9" />
-        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="18,11,0,302" d:ItemsSource="{d:SampleData ItemCount=4}" HorizontalAlignment="Left" Width="629" Grid.Column="2" Grid.RowSpan="10" Grid.Row="2">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Vertical" Height="696" Width="606"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+        <ListView x:Name="ListSpisok" SelectionChanged="ListSpisok_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility ="Visible" HorizontalContentAlignment="Center" Margin="18,11,0,302"  HorizontalAlignment="Left" Width="629" Grid.Column="2" Grid.RowSpan="10" Grid.Row="2">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                   <DataTemplate>
                     <Grid  Height="377" Width="618">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="229*"/>
@@ -85,7 +80,7 @@
                         <TextBlock Text="{Binding SeriaPassport}" TextAlignment="Left" TextWrapping="Wrap" FontSize="20" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="28,10,18,10"/>
                         <TextBlock Text="{Binding Phone}" TextAlignment="Left" TextWrapping="Wrap" FontSize="20" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1" Margin="28,10,18,10"/>
                         <TextBlock Text="{Binding Birthday }" FontSize="20" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="1" Margin="28,10,18,10"/>
-                        <TextBlock Text="{Binding Address }" Grid.Row="6" FontSize="20" Grid.ColumnSpan="2" Grid.Column="1" Margin="28,10,18,10"/>
+                        <TextBlock Text="{Binding Adress }" Grid.Row="6" FontSize="20" Grid.ColumnSpan="2" Grid.Column="1" Margin="28,10,18,10"/>
                         <Button x:Name="Edit" Click="Edit_Click" Content="Редактировать " Grid.Row="7" Margin="46,12,47,12" Grid.ColumnSpan="1" Width="120" />
                         <Button x:Name="Del" Click="Del_Click" Content="Удалить" Grid.Row="7" Grid.Column="1" Margin="16,12,16,12" />
                     </Grid>
@@ -93,11 +88,11 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="10,11,108,287" Grid.ColumnSpan="2" Grid.RowSpan="10" Grid.Row="2">
-            <ListBox x:Name="RedList" Background="White"  Margin="10,0,10,10" Visibility="Visible" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <Grid x:Name="Red" Visibility="Hidden" Background="White" Margin="10,11,10,287" Grid.ColumnSpan="2" Grid.RowSpan="10" Grid.Row="2">
+            <ListBox x:Name="RedList"  Background="White"  Margin="10,0,10,10" Visibility="Visible" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Height="430" Width="360">
                             <StackPanel Width="250" Orientation="Vertical">
                                 <Label Content="Фамилия" />
                                 <TextBox Width="200"  Margin="-45,0,0,0" Text="{Binding Path=LastName}" Height="20" ></TextBox>
